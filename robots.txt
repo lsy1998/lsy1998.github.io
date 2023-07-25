@@ -1,0 +1,9 @@
+User-agent:BaiduSpider
+Allow:/
+
+User-agent:Bingbot
+Allow:/
+
+User-agent:Googlebot
+Allow:/
+
