@@ -15,6 +15,42 @@
       </categories>
   </entry>
   <entry>
+    <title>Electron webContents</title>
+    <url>/2024/01/15/Electron/Electron%20webContents/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>以下是使用webContents的一些示例：</p>
+<p><strong>打开开发者工具：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 打开开发者工具</span></span><br><span class="line">webContents.openDevTools();</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>导航到指定URL：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 导航到指定URL</span></span><br><span class="line">webContents.loadURL(<span class="string">&#x27;https://www.example.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>发送消息给渲染进程：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; ipcMain, BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主进程发送消息给渲染进程</span></span><br><span class="line">webContents.send(<span class="string">&#x27;message&#x27;</span>, <span class="string">&#x27;Hello from main process&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在渲染进程中接收消息</span></span><br><span class="line">ipcMain.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">event, message</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message); <span class="comment">// 输出：Hello from main process</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>捕获页面加载完成事件：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 页面加载完成事件</span></span><br><span class="line">webContents.on(<span class="string">&#x27;did-finish-load&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;页面加载完成&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>注入JavaScript到页面中：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 注入JavaScript到页面中</span></span><br><span class="line">webContents.executeJavaScript(<span class="string">&#x27;alert(&quot;Hello from injected JavaScript&quot;)&#x27;</span>);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Electron</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>基础操作</title>
+    <url>/2024/01/15/ESlint/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g eslint</span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">eslint --init</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ESlint</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS代码规范</title>
     <url>/2024/01/15/CSS/CSS%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="class-命名"><a href="#class-命名" class="headerlink" title="class 命名"></a>class 命名</h2><p>避免过度任意的简写。.btn 代表 button，但是 .s 不能表达任何意思。<br>class 名称应当尽可能短，并且意义明确。<br>随着项目模块增多，防止因为不同页面或者组件中定义的 css 冲突，所以规范 css 语法也变得至关重要，推荐:BEM，分别代表着:<strong>Block(块)、Element(元素)、Modifier(修饰符)</strong></p>
@@ -120,16 +156,6 @@
 ]]></content>
       <categories>
         <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>基础操作</title>
-    <url>/2024/01/15/ESlint/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g eslint</span><br></pre></td></tr></table></figure>
-
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">eslint --init</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>ESlint</category>
       </categories>
   </entry>
   <entry>
@@ -347,29 +373,15 @@
       </categories>
   </entry>
   <entry>
-    <title>Electron webContents</title>
-    <url>/2024/01/15/Electron/Electron%20webContents/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>以下是使用webContents的一些示例：</p>
-<p><strong>打开开发者工具：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 打开开发者工具</span></span><br><span class="line">webContents.openDevTools();</span><br></pre></td></tr></table></figure>
+    <title>bind函数的作用和用法</title>
+    <url>/2024/01/15/JS/bind%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8C%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Function.prototype.bind() bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> hello = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c, d</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.temp);</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c, d)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;demo&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> h = hello.bind(demo, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">h(<span class="number">3</span>, <span class="number">4</span>); <span class="comment">// out &#x27;demo&#x27; &#x27;1 2 3 4 &#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-<p><strong>导航到指定URL：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 导航到指定URL</span></span><br><span class="line">webContents.loadURL(<span class="string">&#x27;https://www.example.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>发送消息给渲染进程：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; ipcMain, BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主进程发送消息给渲染进程</span></span><br><span class="line">webContents.send(<span class="string">&#x27;message&#x27;</span>, <span class="string">&#x27;Hello from main process&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在渲染进程中接收消息</span></span><br><span class="line">ipcMain.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">event, message</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message); <span class="comment">// 输出：Hello from main process</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>捕获页面加载完成事件：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 页面加载完成事件</span></span><br><span class="line">webContents.on(<span class="string">&#x27;did-finish-load&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;页面加载完成&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>注入JavaScript到页面中：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 注入JavaScript到页面中</span></span><br><span class="line">webContents.executeJavaScript(<span class="string">&#x27;alert(&quot;Hello from injected JavaScript&quot;)&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>可以看出，bind方法实现了更改原函数内部的this指向并返回了一个新函数出来。所以后面要有一个小括号，也就是执行后才会得到对应的结果。bind中里第一个括号里面的第一个参数被当做函数的this，其余参数包括后面执行函数时传入的参数依次被原函数使用（[[什么是柯里化？]]）。</p>
 ]]></content>
       <categories>
-        <category>Electron</category>
+        <category>JS</category>
       </categories>
   </entry>
   <entry>
@@ -380,18 +392,6 @@
 ]]></content>
       <categories>
         <category>Hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>bind函数的作用和用法</title>
-    <url>/2024/01/15/JS/bind%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8C%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Function.prototype.bind() bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> hello = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c, d</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.temp);</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c, d)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> demo = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;demo&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> h = hello.bind(demo, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">h(<span class="number">3</span>, <span class="number">4</span>); <span class="comment">// out &#x27;demo&#x27; &#x27;1 2 3 4 &#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>可以看出，bind方法实现了更改原函数内部的this指向并返回了一个新函数出来。所以后面要有一个小括号，也就是执行后才会得到对应的结果。bind中里第一个括号里面的第一个参数被当做函数的this，其余参数包括后面执行函数时传入的参数依次被原函数使用（[[什么是柯里化？]]）。</p>
-]]></content>
-      <categories>
-        <category>JS</category>
       </categories>
   </entry>
   <entry>
@@ -406,23 +406,6 @@
 
 <p>这将输出：[3, 4, 5]</p>
 ]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>什么是形参和实参</title>
-    <url>/2024/01/15/JS/%E4%BB%80%E4%B9%88%E6%98%AF%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="形参"><a href="#形参" class="headerlink" title="形参"></a>形参</h2><p>函数定义的可接受参数</p>
-<h4 id="获取形参"><a href="#获取形参" class="headerlink" title="获取形参"></a>获取形参</h4><ol>
-<li>通过<code>fn.length</code>获取形参数量</li>
-</ol>
-<h2 id="实参"><a href="#实参" class="headerlink" title="实参"></a>实参</h2><p>传入函数的实际函数</p>
-<h4 id="获取实参"><a href="#获取实参" class="headerlink" title="获取实参"></a>获取实参</h4><ol>
-<li>通过<code>argument</code>获取所有的实参，</li>
-<li><code>argument</code>是伪数组，有<code>length</code>属性，可通过下标获取参数，不能直接使用数组的方法</li>
-</ol>
-<h2 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123; </span><br><span class="line">	<span class="built_in">console</span>.log(num1 + num2); </span><br><span class="line">&#125; </span><br><span class="line">sum(<span class="number">100</span>, <span class="number">200</span>); </span><br><span class="line"><span class="comment">// 形参和实参个数相等，输出正确结果 sum(100, 400, 500, 700); </span></span><br><span class="line"><span class="comment">// 实参个数多于形参，只取到形参的个数 sum(200); </span></span><br><span class="line"><span class="comment">// 实参个数少于形参，多的形参定义为undefined，结果为NaN</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>JS</category>
       </categories>
@@ -447,6 +430,23 @@
       <tags>
         <tag>#FF</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>什么是形参和实参</title>
+    <url>/2024/01/15/JS/%E4%BB%80%E4%B9%88%E6%98%AF%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="形参"><a href="#形参" class="headerlink" title="形参"></a>形参</h2><p>函数定义的可接受参数</p>
+<h4 id="获取形参"><a href="#获取形参" class="headerlink" title="获取形参"></a>获取形参</h4><ol>
+<li>通过<code>fn.length</code>获取形参数量</li>
+</ol>
+<h2 id="实参"><a href="#实参" class="headerlink" title="实参"></a>实参</h2><p>传入函数的实际函数</p>
+<h4 id="获取实参"><a href="#获取实参" class="headerlink" title="获取实参"></a>获取实参</h4><ol>
+<li>通过<code>argument</code>获取所有的实参，</li>
+<li><code>argument</code>是伪数组，有<code>length</code>属性，可通过下标获取参数，不能直接使用数组的方法</li>
+</ol>
+<h2 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123; </span><br><span class="line">	<span class="built_in">console</span>.log(num1 + num2); </span><br><span class="line">&#125; </span><br><span class="line">sum(<span class="number">100</span>, <span class="number">200</span>); </span><br><span class="line"><span class="comment">// 形参和实参个数相等，输出正确结果 sum(100, 400, 500, 700); </span></span><br><span class="line"><span class="comment">// 实参个数多于形参，只取到形参的个数 sum(200); </span></span><br><span class="line"><span class="comment">// 实参个数少于形参，多的形参定义为undefined，结果为NaN</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
   </entry>
   <entry>
     <title>理解依赖注入</title>
@@ -545,6 +545,14 @@
 <h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>React</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>[object Object]</title>
+    <url>/2024/01/15/Template/front-matter/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>Template</category>
       </categories>
   </entry>
   <entry>
@@ -734,29 +742,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Obsidian 网页剪裁解决方案</title>
-    <url>/2024/02/17/SimpRead/6-Obsidian%20%E7%BD%91%E9%A1%B5%E5%89%AA%E8%A3%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88@annote/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Obsidian-网页剪裁解决方案"><a href="#Obsidian-网页剪裁解决方案" class="headerlink" title="Obsidian 网页剪裁解决方案"></a>Obsidian 网页剪裁解决方案</h1><blockquote>
-<p>[!example]- <a href="http://localhost:7026/unread/6">🧷内部链接</a> <a href="https://sspai.com/post/85810">🌐外部链接</a><br>URI:: <a href="http://localhost:7026/unread/6">🧷</a> <a href="https://sspai.com/post/85810">🌐</a><br>intURI:: <a href="http://localhost:7026/reading/6">🧷内部链接</a></p>
-</blockquote>
-<p>%%</p>
-<blockquote>
-<p>[!example]+ <strong>Comments</strong>  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TABLE </span><br><span class="line">    WITHOUT ID</span><br><span class="line">    link(Source, dateformat(date(Source), &quot;yyyy-MM-dd&quot;)) as Date___, </span><br><span class="line">    regexreplace(rows.Comments,&quot;^@@\[\[.+?\]\]\s&quot;,&quot;&quot;) as &quot;Comments&quot;</span><br><span class="line">FROM &quot;journals&quot;</span><br><span class="line">WHERE  contains(cmnt, this.file.name)</span><br><span class="line">FLATTEN cmnt as Comments</span><br><span class="line">WHERE contains(Comments, this.file.name)</span><br><span class="line">GROUP BY file.link as Source</span><br><span class="line">SORT rows.file.day desc</span><br></pre></td></tr></table></figure>
-<p> <strong>Description</strong>:: 前言我将笔记从印象笔记迁移至 Obsidian 后已经一段时间了，使用体验良好。<br>%%</p>
-</blockquote>
-<blockquote>
-<p>[!md] Metadata<br><strong>标题</strong>:: <a href="https://sspai.com/post/85810">Obsidian 网页剪裁解决方案</a><br><strong>日期</strong>:: [[2024-02-17]]  </p>
-</blockquote>
-<h2 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h2><blockquote>
-<p>[!srhl2] [[SR6@Obsidian 网页剪裁解决方案|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> <a href="http://localhost:7026/unread/6#id=1708148255515">🧷</a> <a href="http://localhost:7026/reading/6#id=1708148255515">🌐</a><br>分便利，我迁移完成后没有来得及找到替代品<br>^sran-1708148255515</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>SimpRead</category>
-      </categories>
-  </entry>
-  <entry>
     <title>为什么 Bun 可能对 Node 降维打击？</title>
     <url>/2024/02/17/SimpRead/7-%E4%B8%BA%E4%BB%80%E4%B9%88%20Bun%20%E5%8F%AF%E8%83%BD%E5%AF%B9%20Node%20%E9%99%8D%E7%BB%B4%E6%89%93%E5%87%BB%EF%BC%9F@annote/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="为什么-Bun-可能对-Node-降维打击？"><a href="#为什么-Bun-可能对-Node-降维打击？" class="headerlink" title="为什么 Bun 可能对 Node 降维打击？"></a>为什么 Bun 可能对 Node 降维打击？</h1><blockquote>
@@ -781,6 +766,29 @@
 </blockquote>
 <blockquote>
 <p>[!srhl2] [[SR7@为什么 Bun 可能对 Node 降维打击？|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> <a href="http://localhost:7026/unread/7#id=1708158031880">🧷</a> <a href="http://localhost:7026/reading/7#id=1708158031880">🌐</a><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb6aa232bfcc4769a75a1917b897f79b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1280&h=720&s=588648&e=png&b=29292a"><br>^sran-1708158031880</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>SimpRead</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Obsidian 网页剪裁解决方案</title>
+    <url>/2024/02/17/SimpRead/6-Obsidian%20%E7%BD%91%E9%A1%B5%E5%89%AA%E8%A3%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88@annote/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Obsidian-网页剪裁解决方案"><a href="#Obsidian-网页剪裁解决方案" class="headerlink" title="Obsidian 网页剪裁解决方案"></a>Obsidian 网页剪裁解决方案</h1><blockquote>
+<p>[!example]- <a href="http://localhost:7026/unread/6">🧷内部链接</a> <a href="https://sspai.com/post/85810">🌐外部链接</a><br>URI:: <a href="http://localhost:7026/unread/6">🧷</a> <a href="https://sspai.com/post/85810">🌐</a><br>intURI:: <a href="http://localhost:7026/reading/6">🧷内部链接</a></p>
+</blockquote>
+<p>%%</p>
+<blockquote>
+<p>[!example]+ <strong>Comments</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TABLE </span><br><span class="line">    WITHOUT ID</span><br><span class="line">    link(Source, dateformat(date(Source), &quot;yyyy-MM-dd&quot;)) as Date___, </span><br><span class="line">    regexreplace(rows.Comments,&quot;^@@\[\[.+?\]\]\s&quot;,&quot;&quot;) as &quot;Comments&quot;</span><br><span class="line">FROM &quot;journals&quot;</span><br><span class="line">WHERE  contains(cmnt, this.file.name)</span><br><span class="line">FLATTEN cmnt as Comments</span><br><span class="line">WHERE contains(Comments, this.file.name)</span><br><span class="line">GROUP BY file.link as Source</span><br><span class="line">SORT rows.file.day desc</span><br></pre></td></tr></table></figure>
+<p> <strong>Description</strong>:: 前言我将笔记从印象笔记迁移至 Obsidian 后已经一段时间了，使用体验良好。<br>%%</p>
+</blockquote>
+<blockquote>
+<p>[!md] Metadata<br><strong>标题</strong>:: <a href="https://sspai.com/post/85810">Obsidian 网页剪裁解决方案</a><br><strong>日期</strong>:: [[2024-02-17]]  </p>
+</blockquote>
+<h2 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h2><blockquote>
+<p>[!srhl2] [[SR6@Obsidian 网页剪裁解决方案|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> <a href="http://localhost:7026/unread/6#id=1708148255515">🧷</a> <a href="http://localhost:7026/reading/6#id=1708148255515">🌐</a><br>分便利，我迁移完成后没有来得及找到替代品<br>^sran-1708148255515</p>
 </blockquote>
 ]]></content>
       <categories>
@@ -909,14 +917,6 @@
       </categories>
   </entry>
   <entry>
-    <title>[object Object]</title>
-    <url>/2024/01/15/Template/front-matter/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>Template</category>
-      </categories>
-  </entry>
-  <entry>
     <title>abstract</title>
     <url>/2024/01/15/TypeScript/abstract/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#面向对象</p>
@@ -935,15 +935,6 @@
 <p>同名interface会合并，而type不会</p>
 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> myInterface&#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="built_in">string</span>;</span><br><span class="line">	age:int;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> myInterface&#123;</span><br><span class="line">	<span class="attr">gender</span>:<span class="built_in">boolean</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等于</span><br><span class="line"><span class="keyword">interface</span> myInterface&#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="built_in">string</span>;</span><br><span class="line">	age:int;</span><br><span class="line">	gender:<span class="built_in">boolean</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>接口中的属性不能有实际的值</p>
-]]></content>
-      <categories>
-        <category>TypeScript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>super</title>
-    <url>/2024/01/15/TypeScript/super/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#面向对象<br>子类重写构造函数一定要在里面调用super</p>
 ]]></content>
       <categories>
         <category>TypeScript</category>
@@ -1006,6 +997,15 @@
       </categories>
   </entry>
   <entry>
+    <title>super</title>
+    <url>/2024/01/15/TypeScript/super/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#面向对象<br>子类重写构造函数一定要在里面调用super</p>
+]]></content>
+      <categories>
+        <category>TypeScript</category>
+      </categories>
+  </entry>
+  <entry>
     <title>权限修饰符</title>
     <url>/2024/01/15/TypeScript/%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="public"><a href="#public" class="headerlink" title="public"></a>public</h2><p>修饰的属性可以在任意位置访问和修改</p>
@@ -1039,6 +1039,14 @@
 ]]></content>
       <categories>
         <category>TypeScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>{.vscode}</title>
+    <url>/2024/01/15/VS%20Code/%7B.vscode%7D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>VS Code</category>
       </categories>
   </entry>
   <entry>
@@ -1151,14 +1159,6 @@
       </categories>
   </entry>
   <entry>
-    <title>{.vscode}</title>
-    <url>/2024/01/15/VS%20Code/%7B.vscode%7D/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>VS Code</category>
-      </categories>
-  </entry>
-  <entry>
     <title>A股，B股，H股</title>
     <url>/2024/01/15/%E7%90%86%E8%B4%A2/A%E8%82%A1%EF%BC%8CB%E8%82%A1%EF%BC%8CH%E8%82%A1/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>A股：注册地在大陆境内，上海或深圳交易所，人民币买卖股票<br>B股：注册地在大陆境内，上海或深圳交易所，美元或港币交易<br>H股：注册地在大陆境内，香港交易所，港币进行交易</p>
@@ -1195,18 +1195,18 @@
       </categories>
   </entry>
   <entry>
-    <title>基金的投资方向</title>
-    <url>/2024/01/15/%E7%90%86%E8%B4%A2/%E5%9F%BA%E9%87%91%E7%9A%84%E6%8A%95%E8%B5%84%E6%96%B9%E5%90%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>股票型基金<br>债券型基金<br>混合型基金<br>货币型基金</p>
+    <title>开放基金、封闭基金、ETF基金</title>
+    <url>/2024/01/15/%E7%90%86%E8%B4%A2/%E5%BC%80%E6%94%BE%E5%9F%BA%E9%87%91%E3%80%81%E5%B0%81%E9%97%AD%E5%9F%BA%E9%87%91%E3%80%81ETF%E5%9F%BA%E9%87%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>开放基金申购赎回不受时间限制<br>封闭基金在封闭期间无法赎回</p>
 ]]></content>
       <categories>
         <category>理财</category>
       </categories>
   </entry>
   <entry>
-    <title>开放基金、封闭基金、ETF基金</title>
-    <url>/2024/01/15/%E7%90%86%E8%B4%A2/%E5%BC%80%E6%94%BE%E5%9F%BA%E9%87%91%E3%80%81%E5%B0%81%E9%97%AD%E5%9F%BA%E9%87%91%E3%80%81ETF%E5%9F%BA%E9%87%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>开放基金申购赎回不受时间限制<br>封闭基金在封闭期间无法赎回</p>
+    <title>基金的投资方向</title>
+    <url>/2024/01/15/%E7%90%86%E8%B4%A2/%E5%9F%BA%E9%87%91%E7%9A%84%E6%8A%95%E8%B5%84%E6%96%B9%E5%90%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>股票型基金<br>债券型基金<br>混合型基金<br>货币型基金</p>
 ]]></content>
       <categories>
         <category>理财</category>
@@ -1570,28 +1570,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS 单位</title>
-    <url>/2024/01/15/CSS/%E7%9F%A5%E8%AF%86%E7%82%B9/CSS%20%E5%8D%95%E4%BD%8D/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p><code>rem(root em)</code>是相对单位；rem单位是相对于HTML标签的字号计算结果；<code>1rem = 1HTML字号大小</code>。</p>
-<p>如果<span style="background:#ff4d4f">html标签</span>的<strong>font-size是20px，那么1rem就是20</strong>。</p>
-<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p><strong>em(相对长度单位，相对于当前对象内文本的字体尺寸)<strong>：是一个相对长度单位，最初是指<code>字母M的宽度</code>，故名em。现指的是</strong>字符宽度的倍数</strong>，用法类似百分比，如：0.8em, 1.2em,2em等。通常1em=16px。em单位的大小是相对于<code>父元素</code>字体大小计算的，因此当父元素的字体大小设置改变时，em单位的值也会跟着变化。</p>
-<p>好多人都认为 em 就是相对于 父元素 font-size，实际上在不同的 CSS 属性当中使用 em 其相对的目标也是不同，如下：<br>用于 font-size 中则是相对于 <strong>父元素 font-size</strong> 大小</p>
-<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202309061552854.png" alt="image.png"></p>
-<p>用于 其他属性（如 width，height） 中使用是相对于 <strong>自身 font-size</strong> 大小</p>
-<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202309061553679.png" alt="image.png"></p>
-<p>值得注意的是，若 当前元素/父元素 的 font-size 未设置，由于 font-size 属性值可被继承的原因，可逐级向上查找，最终找不到则相对于<strong>浏览器默认字体大小，即 font-size = 16px</strong>。</p>
-<h2 id="px"><a href="#px" class="headerlink" title="px"></a>px</h2><p>**px (pixel，像素)**：是一个虚拟长度单位，是计算机系统的数字化图像长度单位，如果px要换算成物理长度，需要指定精度DPI(Dots Per Inch，每英寸像素数)，在扫描打印时一般都有DPI可选。Windows系统默认是96dpi，Apple系统默认是72dpi。</p>
-<p><strong>px=1/dpi(英寸)</strong></p>
-<h2 id="pt"><a href="#pt" class="headerlink" title="pt"></a>pt</h2><p>**pt (point，磅)**：是一个物理长度单位，指的是72分之一英寸。<code>pt=1/72(英寸), px=1/dpi(英寸)</code></p>
-<h2 id="vw-和-vh"><a href="#vw-和-vh" class="headerlink" title="vw 和 vh"></a>vw 和 vh</h2><p><strong>vw</strong> 全称是 viewport width，代表的是 视口的宽度，相对于 视口 viewport 的 宽度<br><strong>vh</strong> 全称是 viewport height，代表的是 视口的高度，相对于 视口 viewport 的 高度<br>vw 和 vh 是将 视口 宽/高 都分成 100 份，因此 100vw = 视口宽、100vh = 视口高</p>
-<h2 id="vmin-和-vmax"><a href="#vmin-和-vmax" class="headerlink" title="vmin 和 vmax"></a>vmin 和 vmax</h2><p>vmin 和 vmax 代表的是 视口宽度 和 视口高度 中的 最小值 和 最大值<br><strong>vmin</strong> = 视口高度 vh 和 宽度 vw 间的最小值<br><strong>vmax</strong> = 视口高度 vh 和 宽度 vw 间的最大值</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>知识点</category>
-      </categories>
-  </entry>
-  <entry>
     <title>@property</title>
     <url>/2024/01/15/CSS/%E7%9F%A5%E8%AF%86%E7%82%B9/@property/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>@property是一个新增的CSS @规则(CSS at-rule)，它是<a href="https://link.zhihu.com/?target=https://developer.mozilla.org/en-US/docs/Web/Guide/Houdini">CSS Houdini</a> API的一部分, 它允许开发者显式地定义css自定义属性，并允许进行属性类型检查、设定默认值以及定义该自定义属性是否可以被继承。@property可以直接在样式表中注册自定义属性，无需运行任何JS代码；同时也配备相应的JS语法注册自定义属性。@property自定义属性，是CSS变量(CSS variables)声明变量的升级版本，比CSS变量更加规范和严谨。</p>
@@ -1608,6 +1586,28 @@
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> --primary-color &#123;</span><br><span class="line">  syntax: <span class="string">&#x27;&lt;color&gt;&#x27;</span>;</span><br><span class="line">  inherits: false;</span><br><span class="line">  <span class="attribute">initial</span>-value: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">:root</span>&#123;</span><br><span class="line">    --primary-<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">var</span>(--primary-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://zhuanlan.zhihu.com/p/409933240">一起了解一下css新特性@property - 知乎 (zhihu.com)</a></p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+        <category>知识点</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CSS 单位</title>
+    <url>/2024/01/15/CSS/%E7%9F%A5%E8%AF%86%E7%82%B9/CSS%20%E5%8D%95%E4%BD%8D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p><code>rem(root em)</code>是相对单位；rem单位是相对于HTML标签的字号计算结果；<code>1rem = 1HTML字号大小</code>。</p>
+<p>如果<span style="background:#ff4d4f">html标签</span>的<strong>font-size是20px，那么1rem就是20</strong>。</p>
+<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><p><strong>em(相对长度单位，相对于当前对象内文本的字体尺寸)<strong>：是一个相对长度单位，最初是指<code>字母M的宽度</code>，故名em。现指的是</strong>字符宽度的倍数</strong>，用法类似百分比，如：0.8em, 1.2em,2em等。通常1em=16px。em单位的大小是相对于<code>父元素</code>字体大小计算的，因此当父元素的字体大小设置改变时，em单位的值也会跟着变化。</p>
+<p>好多人都认为 em 就是相对于 父元素 font-size，实际上在不同的 CSS 属性当中使用 em 其相对的目标也是不同，如下：<br>用于 font-size 中则是相对于 <strong>父元素 font-size</strong> 大小</p>
+<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202309061552854.png" alt="image.png"></p>
+<p>用于 其他属性（如 width，height） 中使用是相对于 <strong>自身 font-size</strong> 大小</p>
+<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202309061553679.png" alt="image.png"></p>
+<p>值得注意的是，若 当前元素/父元素 的 font-size 未设置，由于 font-size 属性值可被继承的原因，可逐级向上查找，最终找不到则相对于<strong>浏览器默认字体大小，即 font-size = 16px</strong>。</p>
+<h2 id="px"><a href="#px" class="headerlink" title="px"></a>px</h2><p>**px (pixel，像素)**：是一个虚拟长度单位，是计算机系统的数字化图像长度单位，如果px要换算成物理长度，需要指定精度DPI(Dots Per Inch，每英寸像素数)，在扫描打印时一般都有DPI可选。Windows系统默认是96dpi，Apple系统默认是72dpi。</p>
+<p><strong>px=1/dpi(英寸)</strong></p>
+<h2 id="pt"><a href="#pt" class="headerlink" title="pt"></a>pt</h2><p>**pt (point，磅)**：是一个物理长度单位，指的是72分之一英寸。<code>pt=1/72(英寸), px=1/dpi(英寸)</code></p>
+<h2 id="vw-和-vh"><a href="#vw-和-vh" class="headerlink" title="vw 和 vh"></a>vw 和 vh</h2><p><strong>vw</strong> 全称是 viewport width，代表的是 视口的宽度，相对于 视口 viewport 的 宽度<br><strong>vh</strong> 全称是 viewport height，代表的是 视口的高度，相对于 视口 viewport 的 高度<br>vw 和 vh 是将 视口 宽/高 都分成 100 份，因此 100vw = 视口宽、100vh = 视口高</p>
+<h2 id="vmin-和-vmax"><a href="#vmin-和-vmax" class="headerlink" title="vmin 和 vmax"></a>vmin 和 vmax</h2><p>vmin 和 vmax 代表的是 视口宽度 和 视口高度 中的 最小值 和 最大值<br><strong>vmin</strong> = 视口高度 vh 和 宽度 vw 间的最小值<br><strong>vmax</strong> = 视口高度 vh 和 宽度 vw 间的最大值</p>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -1937,6 +1937,17 @@
       </categories>
   </entry>
   <entry>
+    <title>new Date()小知识点</title>
+    <url>/2024/01/15/JS/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/new%20Date()%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307271138137.png" alt="image.png"></p>
+<p><a href="https://juejin.cn/post/7221884988492382267">new Date() 我忍你很久了！ - 掘金 (juejin.cn)</a></p>
+]]></content>
+      <categories>
+        <category>JS</category>
+        <category>小知识点</category>
+      </categories>
+  </entry>
+  <entry>
     <title>AOP</title>
     <url>/2024/01/15/Java/Springboot/AOP/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>AOP</strong>为<font color="#4f81bd">Aspect Oriented Programming</font>的缩写，意为：面向切面编程。</p>
@@ -1964,17 +1975,6 @@
       <categories>
         <category>Java</category>
         <category>Springboot</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>new Date()小知识点</title>
-    <url>/2024/01/15/JS/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/new%20Date()%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307271138137.png" alt="image.png"></p>
-<p><a href="https://juejin.cn/post/7221884988492382267">new Date() 我忍你很久了！ - 掘金 (juejin.cn)</a></p>
-]]></content>
-      <categories>
-        <category>JS</category>
-        <category>小知识点</category>
       </categories>
   </entry>
   <entry>
@@ -2361,62 +2361,6 @@
       </categories>
   </entry>
   <entry>
-    <title>4. Nest.js Providers</title>
-    <url>/2024/01/15/Node/NestJS/4.%20Nest.js%20Providers/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Providers是Nest中的一个基本概念。许多基本的Nest类可以被视为提供者——服务、存储库、工厂、助手等等。提供者的主要思想是它可以作为依赖注入;这意味着对象可以创建彼此之间的各种关系，并且“连接”对象实例的功能可以在很大程度上委托给Nest运行时系统。</p>
-<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307250927115.png" alt="image.png"></p>
-<p>在前一章中，我们构建了一个简单的<code>CatsController</code>。控制器应该处理HTTP请求，并将更复杂的任务委托给提供商。提供程序是在模块中声明为提供程序的普通JavaScript类。</p>
-<blockquote>
-<p>[!hint]<br>由于Nest允许以更面向对象的方式设计和组织依赖项，因此我们强烈建议遵循<a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a>原则([[SOLID]])。</p>
-</blockquote>
-<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>让我们从创建一个简单的<code>CatsService</code>开始。该服务将负责数据存储和检索，并被设计为由<code>CatsController</code>使用，因此将其定义为提供者是一个很好的候选者。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Cat &#125; <span class="keyword">from</span> <span class="string">&#x27;./interfaces/cat.interface&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CatsService</span> </span>&#123;</span><br><span class="line">  private readonly cats: Cat[] = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">create</span>(<span class="params">cat: Cat</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.cats.push(cat);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  findAll(): Cat[] &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.cats;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>[!hint]<br>要使用CLI创建服务，只需执行<code>$ nest g service cats</code>命令。</p>
-</blockquote>
-<p>我们的<code>CatsService</code>是一个具有一个属性和两个方法的基本类。唯一的新特性是它使用了<code>@Injectable()</code>装饰器。<code>@Injectable()</code>装饰器附加了元数据，它声明<code>CatsService</code>是一个可以由Nest IoC容器管理的类。顺便说一下，这个例子也使用了一个<code>Cat</code>接口，它看起来可能是这样的:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> interface Cat &#123;</span><br><span class="line">  <span class="attr">name</span>: string;</span><br><span class="line">  age: number;</span><br><span class="line">  breed: string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>现在我们有了一个检索猫的服务类，让我们在<code>CatsController</code>中使用它:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Controller, Get, Post, Body &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CreateCatDto &#125; <span class="keyword">from</span> <span class="string">&#x27;./dto/create-cat.dto&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsService &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats.service&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Cat &#125; <span class="keyword">from</span> <span class="string">&#x27;./interfaces/cat.interface&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Controller(<span class="string">&#x27;cats&#x27;</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CatsController</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">private catsService: CatsService</span>)</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">  @Post()</span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="title">create</span>(<span class="params">@Body() createCatDto: CreateCatDto</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.catsService.create(createCatDto);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Get()</span><br><span class="line">  <span class="keyword">async</span> findAll(): <span class="built_in">Promise</span>&lt;Cat[]&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.catsService.findAll();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>CatsService</code>是通过类构造函数注入的。注意这里使用了私有语法。这种简写允许我们在同一位置立即声明和初始化<code>catsService</code>成员。</p>
-<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>Nest是围绕通常称为依赖注入的强大设计模式构建的。我们建议在Angular官方文档中阅读一篇关于这个概念的<a href="https://angular.io/guide/dependency-injection">好文章</a>([[理解依赖注入]])。</p>
-<p>在Nest中，由于TypeScript的功能，管理依赖非常容易，因为它们只按类型解析。在下面的示例中，Nest将通过创建和返回<code>catsService</code>的实例来解析<code>catsService</code>(或者，在单例的正常情况下，如果已经在其他地方请求了它，则返回现有的实例)。这个依赖被解析并传递给你的控制器的构造函数(或分配给指定的属性):</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params">private catsService: CatsService</span>)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>Providers通常有一个与应用程序生命周期同步的生命周期(“作用域”)。当应用程序被引导时，必须解析每个依赖项，因此必须实例化每个提供者。类似地，当应用程序关闭时，每个提供程序都将被销毁。然而，也有一些方法可以使您的提供者生命周期限定在<code>request-scoped</code>内。你可以在<a href="https://docs.nestjs.com/fundamentals/injection-scopes">这里</a>阅读更多关于这些技术的内容。</p>
-<h2 id="自定义-Providers"><a href="#自定义-Providers" class="headerlink" title="自定义 Providers"></a>自定义 Providers</h2><p>Nest有一个内置的控制反转(IoC)容器来解析providers之间的关系。这个特性是上述依赖注入特性的基础，但实际上比我们目前所描述的要强大得多。有几种方法可以定义提供程序:您可以使用普通值、类以及异步或同步工厂。这里提供了更多<a href="https://docs.nestjs.com/fundamentals/dependency-injection">示例</a>。</p>
-<h2 id="Optional-providers"><a href="#Optional-providers" class="headerlink" title="Optional providers"></a>Optional providers</h2><p>偶尔，您可能会有不需要解析的依赖项。例如，您的类可能依赖于配置对象，但如果没有传递，则应使用默认值。在这种情况下，依赖项成为可选的，因为缺少配置提供程序不会导致错误。</p>
-<p>要指出一个提供程序是可选的，可以在构造函数的签名中使用<code>@Optional()</code>装饰器。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Optional, Inject &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpService</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">@Optional() @Inject(<span class="string">&#x27;HTTP_OPTIONS&#x27;</span>) private httpClient: T</span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，在上面的示例中，我们使用的是自定义provider，这就是我们包含<code>HTTP_OPTIONS</code>自定义令牌的原因。前面的例子展示了基于构造函数的注入，通过构造函数中的类 表示 依赖项。在<a href="https://docs.nestjs.com/fundamentals/custom-providers">这里</a>阅读有关自定义提供程序及其相关令牌的更多信息。</p>
-<h2 id="基于属性的注入"><a href="#基于属性的注入" class="headerlink" title="基于属性的注入"></a>基于属性的注入</h2><p>到目前为止，我们使用的技术被称为基于构造函数的注入，因为提供程序是通过构造函数方法注入的。在一些非常特殊的情况下，基于属性的注入可能很有用。例如，如果您的顶级类依赖于一个或多个提供程序，那么通过从构造函数调用子类中的<code>super()</code>来传递它们可能非常繁琐。为了避免这种情况，你可以在属性级别使用<code>@Inject()</code>装饰器。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Inject &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpService</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  @Inject(<span class="string">&#x27;HTTP_OPTIONS&#x27;</span>)</span><br><span class="line">  private readonly httpClient: T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>[!warning]<br>如果你的类没有扩展其他providers，你应该总是使用基于构造函数的注入。</p>
-</blockquote>
-<h2 id="Provider-registration"><a href="#Provider-registration" class="headerlink" title="Provider registration"></a>Provider registration</h2><p>现在我们已经定义了一个<code>provider(CatsService)</code>，并且有了该服务的消费者(<code>CatsController</code>)，我们需要向Nest注册该服务，以便它可以执行注入。我们通过编辑模块文件(<code>app.module.ts</code>)并将服务添加到<code>@Module()</code>装饰器的<code>provider</code>s数组中来实现这一点。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Module &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsController &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.controller&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsService &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.service&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Module(&#123;</span><br><span class="line">  <span class="attr">controllers</span>: [CatsController],</span><br><span class="line">  <span class="attr">providers</span>: [CatsService],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Nest现在可以解析<code>CatsController</code>类的依赖关系了。</p>
-<p>现在我们的目录结构应该是这样的:</p>
-<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307250928067.png" alt="image.png"></p>
-<h2 id="手动实例化"><a href="#手动实例化" class="headerlink" title="手动实例化"></a>手动实例化</h2><p>到目前为止，我们已经讨论了Nest如何自动处理解析依赖项的大部分细节。在某些情况下，你可能需要走出内置的依赖注入系统，手动检索或实例化提供商。下面我们将简要讨论两个这样的主题。</p>
-<ul>
-<li>要获取现有实例或动态实例化提供程序，可以使用 <a href="https://docs.nestjs.com/fundamentals/module-ref">Module reference</a>.</li>
-<li>要在<code>bootstrap()</code>函数中获取提供商(例如，对于没有控制器的独立应用程序，或在引导期间使用配置服务)，请参阅<a href="https://docs.nestjs.com/standalone-applications">独立应用程序</a>。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Node</category>
-        <category>NestJS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>5. Nest.js Modules</title>
     <url>/2024/01/15/Node/NestJS/5.%20Nest.js%20Modules/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Module是一个带有<code>@Module()</code>装饰器的类。<code>@Module()</code>装饰器提供了Nest用来组织应用程序结构的元数据。</p>
@@ -2588,6 +2532,62 @@
       </categories>
   </entry>
   <entry>
+    <title>4. Nest.js Providers</title>
+    <url>/2024/01/15/Node/NestJS/4.%20Nest.js%20Providers/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Providers是Nest中的一个基本概念。许多基本的Nest类可以被视为提供者——服务、存储库、工厂、助手等等。提供者的主要思想是它可以作为依赖注入;这意味着对象可以创建彼此之间的各种关系，并且“连接”对象实例的功能可以在很大程度上委托给Nest运行时系统。</p>
+<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307250927115.png" alt="image.png"></p>
+<p>在前一章中，我们构建了一个简单的<code>CatsController</code>。控制器应该处理HTTP请求，并将更复杂的任务委托给提供商。提供程序是在模块中声明为提供程序的普通JavaScript类。</p>
+<blockquote>
+<p>[!hint]<br>由于Nest允许以更面向对象的方式设计和组织依赖项，因此我们强烈建议遵循<a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a>原则([[SOLID]])。</p>
+</blockquote>
+<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>让我们从创建一个简单的<code>CatsService</code>开始。该服务将负责数据存储和检索，并被设计为由<code>CatsController</code>使用，因此将其定义为提供者是一个很好的候选者。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Cat &#125; <span class="keyword">from</span> <span class="string">&#x27;./interfaces/cat.interface&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CatsService</span> </span>&#123;</span><br><span class="line">  private readonly cats: Cat[] = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">create</span>(<span class="params">cat: Cat</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.cats.push(cat);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  findAll(): Cat[] &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.cats;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!hint]<br>要使用CLI创建服务，只需执行<code>$ nest g service cats</code>命令。</p>
+</blockquote>
+<p>我们的<code>CatsService</code>是一个具有一个属性和两个方法的基本类。唯一的新特性是它使用了<code>@Injectable()</code>装饰器。<code>@Injectable()</code>装饰器附加了元数据，它声明<code>CatsService</code>是一个可以由Nest IoC容器管理的类。顺便说一下，这个例子也使用了一个<code>Cat</code>接口，它看起来可能是这样的:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> interface Cat &#123;</span><br><span class="line">  <span class="attr">name</span>: string;</span><br><span class="line">  age: number;</span><br><span class="line">  breed: string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们有了一个检索猫的服务类，让我们在<code>CatsController</code>中使用它:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Controller, Get, Post, Body &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CreateCatDto &#125; <span class="keyword">from</span> <span class="string">&#x27;./dto/create-cat.dto&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsService &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats.service&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Cat &#125; <span class="keyword">from</span> <span class="string">&#x27;./interfaces/cat.interface&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Controller(<span class="string">&#x27;cats&#x27;</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CatsController</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">private catsService: CatsService</span>)</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">  @Post()</span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="title">create</span>(<span class="params">@Body() createCatDto: CreateCatDto</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.catsService.create(createCatDto);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Get()</span><br><span class="line">  <span class="keyword">async</span> findAll(): <span class="built_in">Promise</span>&lt;Cat[]&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.catsService.findAll();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>CatsService</code>是通过类构造函数注入的。注意这里使用了私有语法。这种简写允许我们在同一位置立即声明和初始化<code>catsService</code>成员。</p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>Nest是围绕通常称为依赖注入的强大设计模式构建的。我们建议在Angular官方文档中阅读一篇关于这个概念的<a href="https://angular.io/guide/dependency-injection">好文章</a>([[理解依赖注入]])。</p>
+<p>在Nest中，由于TypeScript的功能，管理依赖非常容易，因为它们只按类型解析。在下面的示例中，Nest将通过创建和返回<code>catsService</code>的实例来解析<code>catsService</code>(或者，在单例的正常情况下，如果已经在其他地方请求了它，则返回现有的实例)。这个依赖被解析并传递给你的控制器的构造函数(或分配给指定的属性):</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params">private catsService: CatsService</span>)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>Providers通常有一个与应用程序生命周期同步的生命周期(“作用域”)。当应用程序被引导时，必须解析每个依赖项，因此必须实例化每个提供者。类似地，当应用程序关闭时，每个提供程序都将被销毁。然而，也有一些方法可以使您的提供者生命周期限定在<code>request-scoped</code>内。你可以在<a href="https://docs.nestjs.com/fundamentals/injection-scopes">这里</a>阅读更多关于这些技术的内容。</p>
+<h2 id="自定义-Providers"><a href="#自定义-Providers" class="headerlink" title="自定义 Providers"></a>自定义 Providers</h2><p>Nest有一个内置的控制反转(IoC)容器来解析providers之间的关系。这个特性是上述依赖注入特性的基础，但实际上比我们目前所描述的要强大得多。有几种方法可以定义提供程序:您可以使用普通值、类以及异步或同步工厂。这里提供了更多<a href="https://docs.nestjs.com/fundamentals/dependency-injection">示例</a>。</p>
+<h2 id="Optional-providers"><a href="#Optional-providers" class="headerlink" title="Optional providers"></a>Optional providers</h2><p>偶尔，您可能会有不需要解析的依赖项。例如，您的类可能依赖于配置对象，但如果没有传递，则应使用默认值。在这种情况下，依赖项成为可选的，因为缺少配置提供程序不会导致错误。</p>
+<p>要指出一个提供程序是可选的，可以在构造函数的签名中使用<code>@Optional()</code>装饰器。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Optional, Inject &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpService</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">@Optional() @Inject(<span class="string">&#x27;HTTP_OPTIONS&#x27;</span>) private httpClient: T</span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，在上面的示例中，我们使用的是自定义provider，这就是我们包含<code>HTTP_OPTIONS</code>自定义令牌的原因。前面的例子展示了基于构造函数的注入，通过构造函数中的类 表示 依赖项。在<a href="https://docs.nestjs.com/fundamentals/custom-providers">这里</a>阅读有关自定义提供程序及其相关令牌的更多信息。</p>
+<h2 id="基于属性的注入"><a href="#基于属性的注入" class="headerlink" title="基于属性的注入"></a>基于属性的注入</h2><p>到目前为止，我们使用的技术被称为基于构造函数的注入，因为提供程序是通过构造函数方法注入的。在一些非常特殊的情况下，基于属性的注入可能很有用。例如，如果您的顶级类依赖于一个或多个提供程序，那么通过从构造函数调用子类中的<code>super()</code>来传递它们可能非常繁琐。为了避免这种情况，你可以在属性级别使用<code>@Inject()</code>装饰器。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Inject &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpService</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  @Inject(<span class="string">&#x27;HTTP_OPTIONS&#x27;</span>)</span><br><span class="line">  private readonly httpClient: T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!warning]<br>如果你的类没有扩展其他providers，你应该总是使用基于构造函数的注入。</p>
+</blockquote>
+<h2 id="Provider-registration"><a href="#Provider-registration" class="headerlink" title="Provider registration"></a>Provider registration</h2><p>现在我们已经定义了一个<code>provider(CatsService)</code>，并且有了该服务的消费者(<code>CatsController</code>)，我们需要向Nest注册该服务，以便它可以执行注入。我们通过编辑模块文件(<code>app.module.ts</code>)并将服务添加到<code>@Module()</code>装饰器的<code>provider</code>s数组中来实现这一点。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Module &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsController &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.controller&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsService &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.service&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Module(&#123;</span><br><span class="line">  <span class="attr">controllers</span>: [CatsController],</span><br><span class="line">  <span class="attr">providers</span>: [CatsService],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Nest现在可以解析<code>CatsController</code>类的依赖关系了。</p>
+<p>现在我们的目录结构应该是这样的:</p>
+<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307250928067.png" alt="image.png"></p>
+<h2 id="手动实例化"><a href="#手动实例化" class="headerlink" title="手动实例化"></a>手动实例化</h2><p>到目前为止，我们已经讨论了Nest如何自动处理解析依赖项的大部分细节。在某些情况下，你可能需要走出内置的依赖注入系统，手动检索或实例化提供商。下面我们将简要讨论两个这样的主题。</p>
+<ul>
+<li>要获取现有实例或动态实例化提供程序，可以使用 <a href="https://docs.nestjs.com/fundamentals/module-ref">Module reference</a>.</li>
+<li>要在<code>bootstrap()</code>函数中获取提供商(例如，对于没有控制器的独立应用程序，或在引导期间使用配置服务)，请参阅<a href="https://docs.nestjs.com/standalone-applications">独立应用程序</a>。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Node</category>
+        <category>NestJS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>7. Nest.js 异常过滤器</title>
     <url>/2024/01/15/Node/NestJS/7.%20Nest.js%20%E5%BC%82%E5%B8%B8%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Nest有一个内置的异常层，负责处理整个应用程序中所有未处理的异常。当应用程序代码没有处理异常时，该层将捕获异常，然后自动发送适当的用户友好响应。</p>
@@ -2728,6 +2728,100 @@
       </tags>
   </entry>
   <entry>
+    <title>Promise</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/Promise/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>promise 是处理异步请求的特殊对象</p>
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Promise 有三种状态。</p>
+<ol>
+<li><strong>pending</strong>(进行中): 初始状态，不是成功或失败状态。处于 pending 状态时，可以使用 then() 方法指定成功和失败的回调函数，<strong>then()方法中的回调函数会统一处理fulfilled和rejected，而不是单独为这两种状态指定不同的处理函数</strong>。</li>
+<li><strong>fulfilled</strong>(已完成): 意味着操作成功完成。已经处于 fulfilled 或 rejected 状态，将立即执行相应的回调函数。</li>
+<li><strong>rejected</strong>(已失败): 意味着操作失败。已经处于 fulfilled 或 rejected 状态，将立即执行相应的回调函数。</li>
+</ol>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">url</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;  </span><br><span class="line">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();  </span><br><span class="line">    xhr.open(<span class="string">&quot;GET&quot;</span>, url);  </span><br><span class="line">    xhr.onload = <span class="function">() =&gt;</span> &#123;  </span><br><span class="line">      <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;  </span><br><span class="line">        resolve(xhr.responseText);  </span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(xhr.statusText));  </span><br><span class="line">      &#125;  </span><br><span class="line">    &#125;;  </span><br><span class="line">    xhr.onerror = <span class="function">() =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;Network Error&quot;</span>));  </span><br><span class="line">    xhr.send();  </span><br><span class="line">  &#125;);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">getData(<span class="string">&quot;https://example.com/todos/1&quot;</span>)  </span><br><span class="line">  .then(<span class="function">(<span class="params">data</span>) =&gt;</span> <span class="built_in">console</span>.log(data))  </span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> <span class="built_in">console</span>.error(error));</span><br></pre></td></tr></table></figure>
+
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h4 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h4><p>并行执行多个 Promise 对象，并在所有 Promise 对象都成功时返回结果。<br>promise.all 是一个 JavaScript 的方法，它接收一个 promise 的可迭代对象（如数组或字符串）作为参数，并返回一个新的 promise 对象。这个新的 promise 对象的状态和结果取决于传入的 promise 对象的状态和结果。<br>如果传入的可迭代对象是空的，或者不包含任何 promise 对象，那么 promise.all 会同步地返回一个已完成（resolved）状态的 promise 对象，它的结果是一个空数组。<br>如果传入的可迭代对象包含至少一个 promise 对象，那么 promise.all 会异步地等待所有的 promise 对象都完成（resolved）或有一个失败（rejected）。<br>如果所有的 promise 对象都完成了，那么 promise.all 返回的 promise 对象也会完成，它的结果是一个包含所有传入的 promise 对象的结果的数组，数组中的顺序和传入的顺序一致。<br>如果有任何一个 promise 对象失败了，那么 promise.all 返回的 promise 对象也会失败，它的结果是第一个失败的 promise 对象的原因。<br>| 输入                        | 输出                                                                                                |<br>| ————————— | ————————————————————————————————— |<br>| 空数组                      | Promise { “fulfilled”, [] }                                                                         |<br>| 非 promise 值               | Promise { “fulfilled”, [输入值] }                                                                   |<br>| 已完成或已失败的 promise 值 | Promise { 第一个失败的 promise 的状态, 第一个失败的 promise 的原因或所有成功的 promise 的结果数组 } |<br>| 未完成或未失败的 promise 值 | Promise { “pending” }                                                                               |<br>|                             |                                                                                                     |<br>![[Pasted image 20230514165735.png]]</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise1 = getData(<span class="string">&quot;/api/data1&quot;</span>);  </span><br><span class="line"><span class="keyword">const</span> promise2 = getData(<span class="string">&quot;/api/data2&quot;</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">Promise</span>.all([promise1, promise2])  </span><br><span class="line">  .then(<span class="function">(<span class="params">[data1, data2]</span>) =&gt;</span> &#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(data1);  </span><br><span class="line">    <span class="built_in">console</span>.log(data2);  </span><br><span class="line">  &#125;)  </span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> <span class="built_in">console</span>.error(error));</span><br></pre></td></tr></table></figure>
+
+<h4 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race"></a>Promise.race</h4><p>Promise.race() 方法可以竞速执行多个 Promise 对象，并返回第一个完成的 Promise 对象的结果。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="string">&quot;result1&quot;</span>), <span class="number">1000</span>));  </span><br><span class="line"><span class="keyword">const</span> promise2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="string">&quot;result2&quot;</span>), <span class="number">500</span>));  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">Promise</span>.race([promise1, promise2])  </span><br><span class="line">  .then(<span class="function">(<span class="params">result</span>) =&gt;</span> <span class="built_in">console</span>.log(result))  </span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> <span class="built_in">console</span>.error(error));</span><br></pre></td></tr></table></figure>
+
+<h2 id="相关知识点"><a href="#相关知识点" class="headerlink" title="相关知识点"></a>相关知识点</h2><h4 id="await"><a href="#await" class="headerlink" title="await"></a>await</h4><p>await是一个运算符，用于等待一个表达式的结果，它只能在异步函数（async function）中使用。<br>await可以等待一个Promise对象，也可以等待一个普通的值。如果等待的是一个Promise对象，await会阻塞后面的代码，直到Promise对象被兑现（resolve）或拒绝（reject），并返回其兑现的值或抛出拒绝的原因。如果等待的是一个普通的值，await会直接返回该值。<br>await可以用于等待异步函数的返回值，也可以用于等待其他的异步操作，比如setTimeout，fetch等。</p>
+<h4 id="then"><a href="#then" class="headerlink" title="then"></a>then</h4><p>then方法是Promise对象的一个方法，它可以接受两个参数，分别是onFulfilled和onRejected。onFulfilled是一个函数，它会在Promise状态变为fulfilled时被调用，onRejected是一个函数，它会在Promise状态变为rejected时被调用。如果你只传递了onFulfilled参数，那么then方法只有在Promise状态变为fulfilled时才会被调用。如果你想在Promise状态变为rejected时也有相应的处理，你可以传递第二个参数onRejected，或者使用catch方法。</p>
+<h4 id="catch"><a href="#catch" class="headerlink" title="catch"></a>catch</h4><p>catch方法是then方法的一种简写形式，它相当于then(undefined, onRejected)。  catch方法返回的是一个新的Promise对象，它可以继续链式调用then方法。如果catch方法没有抛出异常或返回一个被拒绝的Promise对象，那么它返回的Promise对象会被兑现（fulfilled）。</p>
+<h4 id="then和catch"><a href="#then和catch" class="headerlink" title="then和catch"></a>then和catch</h4><p>catch方法可以捕获前面then方法中抛出的异常，而then方法的第二个参数不能捕获自身的异常。</p>
+<h2 id="Some-Questions"><a href="#Some-Questions" class="headerlink" title="Some Questions"></a>Some Questions</h2><h4 id="promise不管包装的是什么内容都会是异步的吗"><a href="#promise不管包装的是什么内容都会是异步的吗" class="headerlink" title="promise不管包装的是什么内容都会是异步的吗?"></a>promise不管包装的是什么内容都会是异步的吗?</h4><p>答：<br>•  promise是一种用于表示异步操作的最终完成或失败及其结果值的对象。<br>•  promise可以包装任何类型的值，无论是普通的值还是另一个promise对象。<br>•  promise本身并不是异步的，它只是一个代理，用于在未来某个时候把值交给使用者。<br>•  promise的异步性体现在它的状态转换上，它有三种状态：待定（pending），已兑现（fulfilled）和已拒绝（rejected）。<br>•  当一个promise被创建时，它处于待定状态，此时它还没有被兑现或被拒绝，也没有任何结果值。<br>•  当一个promise被兑现或被拒绝时，它就变成了已敲定（settled）状态，此时它有一个不可变的结果值，并且不能再改变状态。<br>•  promise的状态转换通常是由异步操作触发的，比如setTimeout，fetch等。当异步操作完成时，它会调用promise构造函数中传入的resolve或reject函数，从而改变promise的状态，并传递结果值。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">resolve(<span class="string">&quot;foo&quot;</span>); <span class="comment">// 异步操作完成后，调用resolve函数，将promise状态从pending变为fulfilled，并传递结果值&#x27;foo&#x27;</span></span><br><span class="line">&#125;, <span class="number">300</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>•  promise的状态转换也可以由同步操作触发，比如直接在构造函数中调用resolve或reject函数。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">resolve(<span class="string">&quot;bar&quot;</span>); <span class="comment">// 同步操作完成后，调用resolve函数，将promise状态从pending变为fulfilled，并传递结果值&#x27;bar&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>•  但是，即使promise的状态转换是由同步操作触发的，它也不会立即执行与之关联的处理函数（then，catch等），而是会将它们放入微任务队列（microtask queue），等待当前执行栈清空后再执行。这样做的目的是为了保证promise的行为一致性和可预测性。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">resolve(<span class="string">&quot;bar&quot;</span>); <span class="comment">// 同步操作完成后，调用resolve函数，将promise状态从pending变为fulfilled，并传递结果值&#x27;bar&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line">myPromise.then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="built_in">console</span>.log(value); <span class="comment">// 这个函数不会立即执行，而是会放入微任务队列中等待</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;baz&quot;</span>); <span class="comment">// 这个语句会先于上面的函数执行</span></span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"><span class="comment">// baz</span></span><br><span class="line"><span class="comment">// bar</span></span><br></pre></td></tr></table></figure>
+
+<p>•  因此，可以说<strong>promise不管包装的是什么内容都会有一定程度的异步性，但这并不意味着它们都会产生新的异步操作。这取决于promise内部如何触发状态转换和结果值传递</strong>。</p>
+]]></content>
+      <categories>
+        <category>Others</category>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>for of 和 for in的区别 ？</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/for%20of%20%E5%92%8C%20for%20in%E7%9A%84%E5%8C%BA%E5%88%AB%20%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>for in 遍历的是key,for of 遍历value</p>
+]]></content>
+      <categories>
+        <category>Others</category>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>事件循环</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>Others</category>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>valueOf和toString</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/valueOf%E5%92%8CtoString/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>console.log()直接打印的话中除了object直接打印、date执行两次toString,其余都toString再用valueOf,<br>alert(),String()中都只使用了toString()，<br>如果需要进行运算，都是先进行valueOf再toString<br>总而言之，<strong>与数字、运算有关的用valueOf优先,其他都是toString优先</strong></p>
+]]></content>
+      <categories>
+        <category>Others</category>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>哲玄前端面试题</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E5%93%B2%E7%8E%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是BCF"><a href="#什么是BCF" class="headerlink" title="什么是BCF?"></a>什么是BCF?</h2>]]></content>
+      <categories>
+        <category>Others</category>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>生命周期</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Vue-生命周期"><a href="#Vue-生命周期" class="headerlink" title="Vue 生命周期"></a>Vue 生命周期</h2><h2 id="Vue-自定义指令"><a href="#Vue-自定义指令" class="headerlink" title="Vue 自定义指令"></a>Vue 自定义指令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">created() -&gt;        -&gt; mounted() -&gt;      -&gt; updated() -&gt;            -&gt; unmounted()</span><br><span class="line">		beforeMounted()        beforeUpdated()     beforeUnmounted()       </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Others</category>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>闭包 ？</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E9%97%AD%E5%8C%85%20%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>Others</category>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
     <title>SOLID</title>
     <url>/2024/01/15/Others/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/SOLID/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>设计模式中的SOLID原则，分别是<code>单一原则、开闭原则、里氏替换原则、接口隔离原则、依赖倒置原则</code>。前辈们总结出来的，遵循五大原则可以使程序解决紧耦合，更加健壮。</p>
@@ -2804,100 +2898,6 @@
       <categories>
         <category>Others</category>
         <category>设计模式</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Promise</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/Promise/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>promise 是处理异步请求的特殊对象</p>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Promise 有三种状态。</p>
-<ol>
-<li><strong>pending</strong>(进行中): 初始状态，不是成功或失败状态。处于 pending 状态时，可以使用 then() 方法指定成功和失败的回调函数，<strong>then()方法中的回调函数会统一处理fulfilled和rejected，而不是单独为这两种状态指定不同的处理函数</strong>。</li>
-<li><strong>fulfilled</strong>(已完成): 意味着操作成功完成。已经处于 fulfilled 或 rejected 状态，将立即执行相应的回调函数。</li>
-<li><strong>rejected</strong>(已失败): 意味着操作失败。已经处于 fulfilled 或 rejected 状态，将立即执行相应的回调函数。</li>
-</ol>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">url</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;  </span><br><span class="line">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();  </span><br><span class="line">    xhr.open(<span class="string">&quot;GET&quot;</span>, url);  </span><br><span class="line">    xhr.onload = <span class="function">() =&gt;</span> &#123;  </span><br><span class="line">      <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;  </span><br><span class="line">        resolve(xhr.responseText);  </span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(xhr.statusText));  </span><br><span class="line">      &#125;  </span><br><span class="line">    &#125;;  </span><br><span class="line">    xhr.onerror = <span class="function">() =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;Network Error&quot;</span>));  </span><br><span class="line">    xhr.send();  </span><br><span class="line">  &#125;);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">getData(<span class="string">&quot;https://example.com/todos/1&quot;</span>)  </span><br><span class="line">  .then(<span class="function">(<span class="params">data</span>) =&gt;</span> <span class="built_in">console</span>.log(data))  </span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> <span class="built_in">console</span>.error(error));</span><br></pre></td></tr></table></figure>
-
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h4 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h4><p>并行执行多个 Promise 对象，并在所有 Promise 对象都成功时返回结果。<br>promise.all 是一个 JavaScript 的方法，它接收一个 promise 的可迭代对象（如数组或字符串）作为参数，并返回一个新的 promise 对象。这个新的 promise 对象的状态和结果取决于传入的 promise 对象的状态和结果。<br>如果传入的可迭代对象是空的，或者不包含任何 promise 对象，那么 promise.all 会同步地返回一个已完成（resolved）状态的 promise 对象，它的结果是一个空数组。<br>如果传入的可迭代对象包含至少一个 promise 对象，那么 promise.all 会异步地等待所有的 promise 对象都完成（resolved）或有一个失败（rejected）。<br>如果所有的 promise 对象都完成了，那么 promise.all 返回的 promise 对象也会完成，它的结果是一个包含所有传入的 promise 对象的结果的数组，数组中的顺序和传入的顺序一致。<br>如果有任何一个 promise 对象失败了，那么 promise.all 返回的 promise 对象也会失败，它的结果是第一个失败的 promise 对象的原因。<br>| 输入                        | 输出                                                                                                |<br>| ————————— | ————————————————————————————————— |<br>| 空数组                      | Promise { “fulfilled”, [] }                                                                         |<br>| 非 promise 值               | Promise { “fulfilled”, [输入值] }                                                                   |<br>| 已完成或已失败的 promise 值 | Promise { 第一个失败的 promise 的状态, 第一个失败的 promise 的原因或所有成功的 promise 的结果数组 } |<br>| 未完成或未失败的 promise 值 | Promise { “pending” }                                                                               |<br>|                             |                                                                                                     |<br>![[Pasted image 20230514165735.png]]</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise1 = getData(<span class="string">&quot;/api/data1&quot;</span>);  </span><br><span class="line"><span class="keyword">const</span> promise2 = getData(<span class="string">&quot;/api/data2&quot;</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">Promise</span>.all([promise1, promise2])  </span><br><span class="line">  .then(<span class="function">(<span class="params">[data1, data2]</span>) =&gt;</span> &#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(data1);  </span><br><span class="line">    <span class="built_in">console</span>.log(data2);  </span><br><span class="line">  &#125;)  </span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> <span class="built_in">console</span>.error(error));</span><br></pre></td></tr></table></figure>
-
-<h4 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race"></a>Promise.race</h4><p>Promise.race() 方法可以竞速执行多个 Promise 对象，并返回第一个完成的 Promise 对象的结果。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="string">&quot;result1&quot;</span>), <span class="number">1000</span>));  </span><br><span class="line"><span class="keyword">const</span> promise2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="string">&quot;result2&quot;</span>), <span class="number">500</span>));  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">Promise</span>.race([promise1, promise2])  </span><br><span class="line">  .then(<span class="function">(<span class="params">result</span>) =&gt;</span> <span class="built_in">console</span>.log(result))  </span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> <span class="built_in">console</span>.error(error));</span><br></pre></td></tr></table></figure>
-
-<h2 id="相关知识点"><a href="#相关知识点" class="headerlink" title="相关知识点"></a>相关知识点</h2><h4 id="await"><a href="#await" class="headerlink" title="await"></a>await</h4><p>await是一个运算符，用于等待一个表达式的结果，它只能在异步函数（async function）中使用。<br>await可以等待一个Promise对象，也可以等待一个普通的值。如果等待的是一个Promise对象，await会阻塞后面的代码，直到Promise对象被兑现（resolve）或拒绝（reject），并返回其兑现的值或抛出拒绝的原因。如果等待的是一个普通的值，await会直接返回该值。<br>await可以用于等待异步函数的返回值，也可以用于等待其他的异步操作，比如setTimeout，fetch等。</p>
-<h4 id="then"><a href="#then" class="headerlink" title="then"></a>then</h4><p>then方法是Promise对象的一个方法，它可以接受两个参数，分别是onFulfilled和onRejected。onFulfilled是一个函数，它会在Promise状态变为fulfilled时被调用，onRejected是一个函数，它会在Promise状态变为rejected时被调用。如果你只传递了onFulfilled参数，那么then方法只有在Promise状态变为fulfilled时才会被调用。如果你想在Promise状态变为rejected时也有相应的处理，你可以传递第二个参数onRejected，或者使用catch方法。</p>
-<h4 id="catch"><a href="#catch" class="headerlink" title="catch"></a>catch</h4><p>catch方法是then方法的一种简写形式，它相当于then(undefined, onRejected)。  catch方法返回的是一个新的Promise对象，它可以继续链式调用then方法。如果catch方法没有抛出异常或返回一个被拒绝的Promise对象，那么它返回的Promise对象会被兑现（fulfilled）。</p>
-<h4 id="then和catch"><a href="#then和catch" class="headerlink" title="then和catch"></a>then和catch</h4><p>catch方法可以捕获前面then方法中抛出的异常，而then方法的第二个参数不能捕获自身的异常。</p>
-<h2 id="Some-Questions"><a href="#Some-Questions" class="headerlink" title="Some Questions"></a>Some Questions</h2><h4 id="promise不管包装的是什么内容都会是异步的吗"><a href="#promise不管包装的是什么内容都会是异步的吗" class="headerlink" title="promise不管包装的是什么内容都会是异步的吗?"></a>promise不管包装的是什么内容都会是异步的吗?</h4><p>答：<br>•  promise是一种用于表示异步操作的最终完成或失败及其结果值的对象。<br>•  promise可以包装任何类型的值，无论是普通的值还是另一个promise对象。<br>•  promise本身并不是异步的，它只是一个代理，用于在未来某个时候把值交给使用者。<br>•  promise的异步性体现在它的状态转换上，它有三种状态：待定（pending），已兑现（fulfilled）和已拒绝（rejected）。<br>•  当一个promise被创建时，它处于待定状态，此时它还没有被兑现或被拒绝，也没有任何结果值。<br>•  当一个promise被兑现或被拒绝时，它就变成了已敲定（settled）状态，此时它有一个不可变的结果值，并且不能再改变状态。<br>•  promise的状态转换通常是由异步操作触发的，比如setTimeout，fetch等。当异步操作完成时，它会调用promise构造函数中传入的resolve或reject函数，从而改变promise的状态，并传递结果值。例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">resolve(<span class="string">&quot;foo&quot;</span>); <span class="comment">// 异步操作完成后，调用resolve函数，将promise状态从pending变为fulfilled，并传递结果值&#x27;foo&#x27;</span></span><br><span class="line">&#125;, <span class="number">300</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>•  promise的状态转换也可以由同步操作触发，比如直接在构造函数中调用resolve或reject函数。例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">resolve(<span class="string">&quot;bar&quot;</span>); <span class="comment">// 同步操作完成后，调用resolve函数，将promise状态从pending变为fulfilled，并传递结果值&#x27;bar&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>•  但是，即使promise的状态转换是由同步操作触发的，它也不会立即执行与之关联的处理函数（then，catch等），而是会将它们放入微任务队列（microtask queue），等待当前执行栈清空后再执行。这样做的目的是为了保证promise的行为一致性和可预测性。例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">resolve(<span class="string">&quot;bar&quot;</span>); <span class="comment">// 同步操作完成后，调用resolve函数，将promise状态从pending变为fulfilled，并传递结果值&#x27;bar&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line">myPromise.then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="built_in">console</span>.log(value); <span class="comment">// 这个函数不会立即执行，而是会放入微任务队列中等待</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;baz&quot;</span>); <span class="comment">// 这个语句会先于上面的函数执行</span></span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"><span class="comment">// baz</span></span><br><span class="line"><span class="comment">// bar</span></span><br></pre></td></tr></table></figure>
-
-<p>•  因此，可以说<strong>promise不管包装的是什么内容都会有一定程度的异步性，但这并不意味着它们都会产生新的异步操作。这取决于promise内部如何触发状态转换和结果值传递</strong>。</p>
-]]></content>
-      <categories>
-        <category>Others</category>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>for of 和 for in的区别 ？</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/for%20of%20%E5%92%8C%20for%20in%E7%9A%84%E5%8C%BA%E5%88%AB%20%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>for in 遍历的是key,for of 遍历value</p>
-]]></content>
-      <categories>
-        <category>Others</category>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>valueOf和toString</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/valueOf%E5%92%8CtoString/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>console.log()直接打印的话中除了object直接打印、date执行两次toString,其余都toString再用valueOf,<br>alert(),String()中都只使用了toString()，<br>如果需要进行运算，都是先进行valueOf再toString<br>总而言之，<strong>与数字、运算有关的用valueOf优先,其他都是toString优先</strong></p>
-]]></content>
-      <categories>
-        <category>Others</category>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>事件循环</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>Others</category>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>哲玄前端面试题</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E5%93%B2%E7%8E%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是BCF"><a href="#什么是BCF" class="headerlink" title="什么是BCF?"></a>什么是BCF?</h2>]]></content>
-      <categories>
-        <category>Others</category>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>生命周期</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Vue-生命周期"><a href="#Vue-生命周期" class="headerlink" title="Vue 生命周期"></a>Vue 生命周期</h2><h2 id="Vue-自定义指令"><a href="#Vue-自定义指令" class="headerlink" title="Vue 自定义指令"></a>Vue 自定义指令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">created() -&gt;        -&gt; mounted() -&gt;      -&gt; updated() -&gt;            -&gt; unmounted()</span><br><span class="line">		beforeMounted()        beforeUpdated()     beforeUnmounted()       </span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Others</category>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>闭包 ？</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E9%97%AD%E5%8C%85%20%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>Others</category>
-        <category>面试</category>
       </categories>
   </entry>
   <entry>
@@ -5625,6 +5625,20 @@ await ea.addElementsToView(false, false);
       </categories>
   </entry>
   <entry>
+    <title>Vue3+Vite引入Sass</title>
+    <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Vue/Vue3+Vite%E5%BC%95%E5%85%A5Sass/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Vue3-Vite引入Sass"><a href="#Vue3-Vite引入Sass" class="headerlink" title="Vue3+Vite引入Sass"></a>Vue3+Vite引入Sass</h1><p>全局：直接main.js引入就行</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//全局引入</span></span><br><span class="line"><span class="attr">css</span>: &#123;</span><br><span class="line">    <span class="attr">preprocessorOptions</span>: &#123;</span><br><span class="line">      <span class="attr">scss</span>: &#123;</span><br><span class="line">        <span class="comment">/**如果引入多个文件，可以使用</span></span><br><span class="line"><span class="comment">       * &#x27;<span class="doctag">@import </span>&quot;@/assets/scss/globalVariable1.scss&quot;;</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@import</span>&quot;@/assets/scss/globalVariable2.scss&quot;;&#x27;</span></span><br><span class="line"><span class="comment">      **/</span></span><br><span class="line">        additionalData: <span class="string">&#x27;@import &quot;@/style/globalVar.scss&quot;;&#x27;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>局部</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//按需引入并使用</span></span><br><span class="line">&lt;style scoped lang=<span class="string">&quot;scss&quot;</span>&gt;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">&quot;@/style/globalMixin.scss&quot;</span>;</span><br><span class="line">.test&#123;</span><br><span class="line">  <span class="attr">width</span>: 650px;</span><br><span class="line">  height: 60px;</span><br><span class="line">  font-size: $font-size-normal;</span><br><span class="line">  background-color: $bg-color;</span><br><span class="line">  @include box-shadow;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>notion</category>
+        <category>学习</category>
+        <category>Vue</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Vue+Vite静态资产引入打包</title>
     <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Vue/Vue+Vite%E9%9D%99%E6%80%81%E8%B5%84%E4%BA%A7%E5%BC%95%E5%85%A5%E6%89%93%E5%8C%85/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Vue-Vite静态资产引入打包"><a href="#Vue-Vite静态资产引入打包" class="headerlink" title="Vue+Vite静态资产引入打包"></a>Vue+Vite静态资产引入打包</h1><ol>
@@ -5641,20 +5655,6 @@ await ea.addElementsToView(false, false);
  </aside></li>
 </ol>
 ]]></content>
-      <categories>
-        <category>notion</category>
-        <category>学习</category>
-        <category>Vue</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Vue3+Vite引入Sass</title>
-    <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Vue/Vue3+Vite%E5%BC%95%E5%85%A5Sass/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Vue3-Vite引入Sass"><a href="#Vue3-Vite引入Sass" class="headerlink" title="Vue3+Vite引入Sass"></a>Vue3+Vite引入Sass</h1><p>全局：直接main.js引入就行</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//全局引入</span></span><br><span class="line"><span class="attr">css</span>: &#123;</span><br><span class="line">    <span class="attr">preprocessorOptions</span>: &#123;</span><br><span class="line">      <span class="attr">scss</span>: &#123;</span><br><span class="line">        <span class="comment">/**如果引入多个文件，可以使用</span></span><br><span class="line"><span class="comment">       * &#x27;<span class="doctag">@import </span>&quot;@/assets/scss/globalVariable1.scss&quot;;</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@import</span>&quot;@/assets/scss/globalVariable2.scss&quot;;&#x27;</span></span><br><span class="line"><span class="comment">      **/</span></span><br><span class="line">        additionalData: <span class="string">&#x27;@import &quot;@/style/globalVar.scss&quot;;&#x27;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>局部</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//按需引入并使用</span></span><br><span class="line">&lt;style scoped lang=<span class="string">&quot;scss&quot;</span>&gt;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">&quot;@/style/globalMixin.scss&quot;</span>;</span><br><span class="line">.test&#123;</span><br><span class="line">  <span class="attr">width</span>: 650px;</span><br><span class="line">  height: 60px;</span><br><span class="line">  font-size: $font-size-normal;</span><br><span class="line">  background-color: $bg-color;</span><br><span class="line">  @include box-shadow;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>notion</category>
         <category>学习</category>
@@ -5931,17 +5931,6 @@ await ea.addElementsToView(false, false);
       </categories>
   </entry>
   <entry>
-    <title>跨盘cd</title>
-    <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Python/Anaconda/%E8%B7%A8%E7%9B%98cd/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="跨盘cd"><a href="#跨盘cd" class="headerlink" title="跨盘cd"></a>跨盘cd</h1><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">cd **<span class="regexp">/d** xx/</span>xxx/xx</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>notion</category>
-        <category>学习</category>
-        <category>Python</category>
-        <category>Anaconda</category>
-      </categories>
-  </entry>
-  <entry>
     <title>OpenCV</title>
     <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Python/OpenCV/OpenCV/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h1><h1 id="什么是opencv"><a href="#什么是opencv" class="headerlink" title="什么是opencv?"></a>什么是opencv?</h1><p>OpenCV（Open Source Computer Vision）是一个开源的计算机视觉库，它可以为各种应用提供实时图像处理功能，从而在许多方面改善了我们的生活。它提供了一些有用的功能，包括图像构建、边缘检测、形态学操作、目标检测、图像分类和跟踪等功能。此外，它还可以用来检测和识别图像中的物体，以及处理视频和图像流，从而达到实时监控的目的。通过使用OpenCV，可以轻松访问各种算法，从而提高应用的效率和性能。</p>
@@ -5993,6 +5982,17 @@ await ea.addElementsToView(false, false);
         <category>学习</category>
         <category>Python</category>
         <category>OpenCV</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>跨盘cd</title>
+    <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Python/Anaconda/%E8%B7%A8%E7%9B%98cd/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="跨盘cd"><a href="#跨盘cd" class="headerlink" title="跨盘cd"></a>跨盘cd</h1><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">cd **<span class="regexp">/d** xx/</span>xxx/xx</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>notion</category>
+        <category>学习</category>
+        <category>Python</category>
+        <category>Anaconda</category>
       </categories>
   </entry>
   <entry>
