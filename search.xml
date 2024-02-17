@@ -15,16 +15,6 @@
       </categories>
   </entry>
   <entry>
-    <title>基础操作</title>
-    <url>/2024/01/15/ESlint/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g eslint</span><br></pre></td></tr></table></figure>
-
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">eslint --init</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>ESlint</category>
-      </categories>
-  </entry>
-  <entry>
     <title>CSS代码规范</title>
     <url>/2024/01/15/CSS/CSS%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="class-命名"><a href="#class-命名" class="headerlink" title="class 命名"></a>class 命名</h2><p>避免过度任意的简写。.btn 代表 button，但是 .s 不能表达任何意思。<br>class 名称应当尽可能短，并且意义明确。<br>随着项目模块增多，防止因为不同页面或者组件中定义的 css 冲突，所以规范 css 语法也变得至关重要，推荐:BEM，分别代表着:<strong>Block(块)、Element(元素)、Modifier(修饰符)</strong></p>
@@ -130,6 +120,16 @@
 ]]></content>
       <categories>
         <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>基础操作</title>
+    <url>/2024/01/15/ESlint/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g eslint</span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">eslint --init</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ESlint</category>
       </categories>
   </entry>
   <entry>
@@ -311,32 +311,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Electron webContents</title>
-    <url>/2024/01/15/Electron/Electron%20webContents/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>以下是使用webContents的一些示例：</p>
-<p><strong>打开开发者工具：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 打开开发者工具</span></span><br><span class="line">webContents.openDevTools();</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>导航到指定URL：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 导航到指定URL</span></span><br><span class="line">webContents.loadURL(<span class="string">&#x27;https://www.example.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>发送消息给渲染进程：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; ipcMain, BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主进程发送消息给渲染进程</span></span><br><span class="line">webContents.send(<span class="string">&#x27;message&#x27;</span>, <span class="string">&#x27;Hello from main process&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在渲染进程中接收消息</span></span><br><span class="line">ipcMain.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">event, message</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message); <span class="comment">// 输出：Hello from main process</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>捕获页面加载完成事件：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 页面加载完成事件</span></span><br><span class="line">webContents.on(<span class="string">&#x27;did-finish-load&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;页面加载完成&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>注入JavaScript到页面中：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 注入JavaScript到页面中</span></span><br><span class="line">webContents.executeJavaScript(<span class="string">&#x27;alert(&quot;Hello from injected JavaScript&quot;)&#x27;</span>);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Electron</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Drawing 2023-05-06 11.00.41.excalidraw</title>
     <url>/2024/01/15/Excalidraw/Drawing%202023-05-06%2011.00.41.excalidraw/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==</p>
@@ -370,6 +344,32 @@
 ]]></content>
       <categories>
         <category>Excalidraw</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Electron webContents</title>
+    <url>/2024/01/15/Electron/Electron%20webContents/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>以下是使用webContents的一些示例：</p>
+<p><strong>打开开发者工具：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 打开开发者工具</span></span><br><span class="line">webContents.openDevTools();</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>导航到指定URL：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 导航到指定URL</span></span><br><span class="line">webContents.loadURL(<span class="string">&#x27;https://www.example.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>发送消息给渲染进程：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; ipcMain, BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主进程发送消息给渲染进程</span></span><br><span class="line">webContents.send(<span class="string">&#x27;message&#x27;</span>, <span class="string">&#x27;Hello from main process&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在渲染进程中接收消息</span></span><br><span class="line">ipcMain.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">event, message</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message); <span class="comment">// 输出：Hello from main process</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>捕获页面加载完成事件：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 页面加载完成事件</span></span><br><span class="line">webContents.on(<span class="string">&#x27;did-finish-load&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;页面加载完成&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>注入JavaScript到页面中：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前窗口的WebContents</span></span><br><span class="line"><span class="keyword">const</span> webContents = mainWindow.webContents;</span><br><span class="line"><span class="comment">// 注入JavaScript到页面中</span></span><br><span class="line">webContents.executeJavaScript(<span class="string">&#x27;alert(&quot;Hello from injected JavaScript&quot;)&#x27;</span>);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Electron</category>
       </categories>
   </entry>
   <entry>
@@ -411,6 +411,23 @@
       </categories>
   </entry>
   <entry>
+    <title>什么是形参和实参</title>
+    <url>/2024/01/15/JS/%E4%BB%80%E4%B9%88%E6%98%AF%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="形参"><a href="#形参" class="headerlink" title="形参"></a>形参</h2><p>函数定义的可接受参数</p>
+<h4 id="获取形参"><a href="#获取形参" class="headerlink" title="获取形参"></a>获取形参</h4><ol>
+<li>通过<code>fn.length</code>获取形参数量</li>
+</ol>
+<h2 id="实参"><a href="#实参" class="headerlink" title="实参"></a>实参</h2><p>传入函数的实际函数</p>
+<h4 id="获取实参"><a href="#获取实参" class="headerlink" title="获取实参"></a>获取实参</h4><ol>
+<li>通过<code>argument</code>获取所有的实参，</li>
+<li><code>argument</code>是伪数组，有<code>length</code>属性，可通过下标获取参数，不能直接使用数组的方法</li>
+</ol>
+<h2 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123; </span><br><span class="line">	<span class="built_in">console</span>.log(num1 + num2); </span><br><span class="line">&#125; </span><br><span class="line">sum(<span class="number">100</span>, <span class="number">200</span>); </span><br><span class="line"><span class="comment">// 形参和实参个数相等，输出正确结果 sum(100, 400, 500, 700); </span></span><br><span class="line"><span class="comment">// 实参个数多于形参，只取到形参的个数 sum(200); </span></span><br><span class="line"><span class="comment">// 实参个数少于形参，多的形参定义为undefined，结果为NaN</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>什么是柯里化?</title>
     <url>/2024/01/15/JS/%E4%BB%80%E4%B9%88%E6%98%AF%E6%9F%AF%E9%87%8C%E5%8C%96%EF%BC%9F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
@@ -430,23 +447,6 @@
       <tags>
         <tag>#FF</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>什么是形参和实参</title>
-    <url>/2024/01/15/JS/%E4%BB%80%E4%B9%88%E6%98%AF%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="形参"><a href="#形参" class="headerlink" title="形参"></a>形参</h2><p>函数定义的可接受参数</p>
-<h4 id="获取形参"><a href="#获取形参" class="headerlink" title="获取形参"></a>获取形参</h4><ol>
-<li>通过<code>fn.length</code>获取形参数量</li>
-</ol>
-<h2 id="实参"><a href="#实参" class="headerlink" title="实参"></a>实参</h2><p>传入函数的实际函数</p>
-<h4 id="获取实参"><a href="#获取实参" class="headerlink" title="获取实参"></a>获取实参</h4><ol>
-<li>通过<code>argument</code>获取所有的实参，</li>
-<li><code>argument</code>是伪数组，有<code>length</code>属性，可通过下标获取参数，不能直接使用数组的方法</li>
-</ol>
-<h2 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123; </span><br><span class="line">	<span class="built_in">console</span>.log(num1 + num2); </span><br><span class="line">&#125; </span><br><span class="line">sum(<span class="number">100</span>, <span class="number">200</span>); </span><br><span class="line"><span class="comment">// 形参和实参个数相等，输出正确结果 sum(100, 400, 500, 700); </span></span><br><span class="line"><span class="comment">// 实参个数多于形参，只取到形参的个数 sum(200); </span></span><br><span class="line"><span class="comment">// 实参个数少于形参，多的形参定义为undefined，结果为NaN</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
   </entry>
   <entry>
     <title>理解依赖注入</title>
@@ -588,6 +588,38 @@
       </categories>
   </entry>
   <entry>
+    <title>我如何使用 Notion 管理简悦的一切</title>
+    <url>/2024/02/17/SimpRead/2-%E6%88%91%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Notion%20%E7%AE%A1%E7%90%86%E7%AE%80%E6%82%A6%E7%9A%84%E4%B8%80%E5%88%87@annote/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="我如何使用-Notion-管理简悦的一切"><a href="#我如何使用-Notion-管理简悦的一切" class="headerlink" title="我如何使用 Notion 管理简悦的一切"></a>我如何使用 Notion 管理简悦的一切</h1><blockquote>
+<p>[!example]- <a href="http://localhost:7026/unread/2">🧷内部链接</a> <a href="https://sspai.com/post/70237">🌐外部链接</a><br>URI:: <a href="http://localhost:7026/unread/2">🧷</a> <a href="https://sspai.com/post/70237">🌐</a><br>intURI:: <a href="http://localhost:7026/reading/2">🧷内部链接</a></p>
+</blockquote>
+<p>%%</p>
+<blockquote>
+<p>[!example]+ <strong>Comments</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TABLE </span><br><span class="line">    WITHOUT ID</span><br><span class="line">    link(Source, dateformat(date(Source), &quot;yyyy-MM-dd&quot;)) as Date___, </span><br><span class="line">    regexreplace(rows.Comments,&quot;^@@\[\[.+?\]\]\s&quot;,&quot;&quot;) as &quot;Comments&quot;</span><br><span class="line">FROM &quot;journals&quot;</span><br><span class="line">WHERE  contains(cmnt, this.file.name)</span><br><span class="line">FLATTEN cmnt as Comments</span><br><span class="line">WHERE contains(Comments, this.file.name)</span><br><span class="line">GROUP BY file.link as Source</span><br><span class="line">SORT rows.file.day desc</span><br></pre></td></tr></table></figure>
+<p> <strong>Description</strong>:: 我每天都要处理两类事务：简悦 &amp; 工作，每个事务都会有不同的角色。通过这篇文章，我就来跟大家分享下使用 Notion 管理简悦的一切工作的经验。<br>%%</p>
+</blockquote>
+<blockquote>
+<p>[!md] Metadata<br><strong>标题</strong>:: <a href="https://sspai.com/post/70237">我如何使用 Notion 管理简悦的一切</a><br><strong>日期</strong>:: [[2022-09-24]]  </p>
+</blockquote>
+<h2 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h2><blockquote>
+<p>[!srhl2] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> <a href="http://localhost:7026/unread/2#id=1664008650243">🧷</a> <a href="http://localhost:7026/reading/2#id=1664008650243">🌐</a><br>处理简悦时，除编码以外的大多数事情非常细碎，所以一天下来的日志可能会非常零碎，为了避免这种情况，我「改造」了间歇日记，把它变成了我的工作日志。</p>
+<p>同时我不会刻意使用番茄工作法来辅助，因为这会让我觉得有些「紧张」。</p>
+<p>首先我会把任务（ Task ）分得越细越好，这样估算每个工作时间也就越精准。每完成一个 Task 就记录在 Notion 中，当一天下来后，就完成了每天的日志。</p>
+<p>我会为每个 Small Project 在 Notion 建立一个如下的结构，然后使用 Paste and Sync 的方式嵌入到工作日志（间歇日记）中。<br>^sran-1664008650243</p>
+</blockquote>
+<blockquote>
+<p>[!srhl3] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #a2e9f2">Highlights</mark> <a href="http://localhost:7026/unread/2#id=1664008663981">🧷</a> <a href="http://localhost:7026/reading/2#id=1664008663981">🌐</a><br><img src="https://cdn.sspai.com/2021/12/01/article/d6027cfdc15580892a6013d9af40ae95"><br>^sran-1664008663981</p>
+</blockquote>
+<blockquote>
+<p>[!srhl5] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #a8ea68">Highlights</mark> <a href="http://localhost:7026/unread/2#id=1664008668130">🧷</a> <a href="http://localhost:7026/reading/2#id=1664008668130">🌐</a><br><img src="https://cdn.sspai.com/2021/12/01/article/dcf998c9e173632ef816f7fae4165c9b"><br>^sran-1664008668130</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>SimpRead</category>
+      </categories>
+  </entry>
+  <entry>
     <title>放弃纠结、拥抱妥协，重器轻用就是高效</title>
     <url>/2024/02/17/SimpRead/3-%E6%94%BE%E5%BC%83%E7%BA%A0%E7%BB%93%E3%80%81%E6%8B%A5%E6%8A%B1%E5%A6%A5%E5%8D%8F%EF%BC%8C%E9%87%8D%E5%99%A8%E8%BD%BB%E7%94%A8%E5%B0%B1%E6%98%AF%E9%AB%98%E6%95%88@annote/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="放弃纠结、拥抱妥协，重器轻用就是高效"><a href="#放弃纠结、拥抱妥协，重器轻用就是高效" class="headerlink" title="放弃纠结、拥抱妥协，重器轻用就是高效"></a>放弃纠结、拥抱妥协，重器轻用就是高效</h1><blockquote>
@@ -625,38 +657,6 @@
 <li>  只选择印象笔记的用户，虽然得到了强大无比的全平台一键导入的便利性，但失去了「数据所有权」。</li>
 <li>  只选择 Typora 的用户，虽然得到了完美的所见即所得，但失去了同步的便利性。<br>^sran-1664008622457</li>
 </ul>
-</blockquote>
-]]></content>
-      <categories>
-        <category>SimpRead</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>我如何使用 Notion 管理简悦的一切</title>
-    <url>/2024/02/17/SimpRead/2-%E6%88%91%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Notion%20%E7%AE%A1%E7%90%86%E7%AE%80%E6%82%A6%E7%9A%84%E4%B8%80%E5%88%87@annote/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="我如何使用-Notion-管理简悦的一切"><a href="#我如何使用-Notion-管理简悦的一切" class="headerlink" title="我如何使用 Notion 管理简悦的一切"></a>我如何使用 Notion 管理简悦的一切</h1><blockquote>
-<p>[!example]- <a href="http://localhost:7026/unread/2">🧷内部链接</a> <a href="https://sspai.com/post/70237">🌐外部链接</a><br>URI:: <a href="http://localhost:7026/unread/2">🧷</a> <a href="https://sspai.com/post/70237">🌐</a><br>intURI:: <a href="http://localhost:7026/reading/2">🧷内部链接</a></p>
-</blockquote>
-<p>%%</p>
-<blockquote>
-<p>[!example]+ <strong>Comments</strong>  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TABLE </span><br><span class="line">    WITHOUT ID</span><br><span class="line">    link(Source, dateformat(date(Source), &quot;yyyy-MM-dd&quot;)) as Date___, </span><br><span class="line">    regexreplace(rows.Comments,&quot;^@@\[\[.+?\]\]\s&quot;,&quot;&quot;) as &quot;Comments&quot;</span><br><span class="line">FROM &quot;journals&quot;</span><br><span class="line">WHERE  contains(cmnt, this.file.name)</span><br><span class="line">FLATTEN cmnt as Comments</span><br><span class="line">WHERE contains(Comments, this.file.name)</span><br><span class="line">GROUP BY file.link as Source</span><br><span class="line">SORT rows.file.day desc</span><br></pre></td></tr></table></figure>
-<p> <strong>Description</strong>:: 我每天都要处理两类事务：简悦 &amp; 工作，每个事务都会有不同的角色。通过这篇文章，我就来跟大家分享下使用 Notion 管理简悦的一切工作的经验。<br>%%</p>
-</blockquote>
-<blockquote>
-<p>[!md] Metadata<br><strong>标题</strong>:: <a href="https://sspai.com/post/70237">我如何使用 Notion 管理简悦的一切</a><br><strong>日期</strong>:: [[2022-09-24]]  </p>
-</blockquote>
-<h2 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h2><blockquote>
-<p>[!srhl2] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #ffeb3b">Highlights</mark> <a href="http://localhost:7026/unread/2#id=1664008650243">🧷</a> <a href="http://localhost:7026/reading/2#id=1664008650243">🌐</a><br>处理简悦时，除编码以外的大多数事情非常细碎，所以一天下来的日志可能会非常零碎，为了避免这种情况，我「改造」了间歇日记，把它变成了我的工作日志。</p>
-<p>同时我不会刻意使用番茄工作法来辅助，因为这会让我觉得有些「紧张」。</p>
-<p>首先我会把任务（ Task ）分得越细越好，这样估算每个工作时间也就越精准。每完成一个 Task 就记录在 Notion 中，当一天下来后，就完成了每天的日志。</p>
-<p>我会为每个 Small Project 在 Notion 建立一个如下的结构，然后使用 Paste and Sync 的方式嵌入到工作日志（间歇日记）中。<br>^sran-1664008650243</p>
-</blockquote>
-<blockquote>
-<p>[!srhl3] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #a2e9f2">Highlights</mark> <a href="http://localhost:7026/unread/2#id=1664008663981">🧷</a> <a href="http://localhost:7026/reading/2#id=1664008663981">🌐</a><br><img src="https://cdn.sspai.com/2021/12/01/article/d6027cfdc15580892a6013d9af40ae95"><br>^sran-1664008663981</p>
-</blockquote>
-<blockquote>
-<p>[!srhl5] [[SR2@我如何使用 Notion 管理简悦的一切|📄]] <mark style="background-color: #a8ea68">Highlights</mark> <a href="http://localhost:7026/unread/2#id=1664008668130">🧷</a> <a href="http://localhost:7026/reading/2#id=1664008668130">🌐</a><br><img src="https://cdn.sspai.com/2021/12/01/article/dcf998c9e173632ef816f7fae4165c9b"><br>^sran-1664008668130</p>
 </blockquote>
 ]]></content>
       <categories>
@@ -917,14 +917,6 @@
       </categories>
   </entry>
   <entry>
-    <title>{.vscode}</title>
-    <url>/2024/01/15/VS%20Code/%7B.vscode%7D/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      <categories>
-        <category>VS Code</category>
-      </categories>
-  </entry>
-  <entry>
     <title>abstract</title>
     <url>/2024/01/15/TypeScript/abstract/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#面向对象</p>
@@ -968,6 +960,14 @@
       </categories>
   </entry>
   <entry>
+    <title>使用Webpack打包ts</title>
+    <url>/2024/01/15/TypeScript/%E4%BD%BF%E7%94%A8Webpack%E6%89%93%E5%8C%85ts/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> HTMLWebPackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> cleanWebPackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 指定入口文件</span></span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./index.ts&#x27;</span>,</span><br><span class="line">    <span class="comment">// 指定打包文件所在路径</span></span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">path</span>: path.resolve(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指定webpack打包要使用哪些模块</span></span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="comment">// 指定要加载的规则</span></span><br><span class="line">        <span class="attr">rules</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// test指定的是规则生效的文件</span></span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.ts$/</span>,</span><br><span class="line">                <span class="comment">// 要使用的loader</span></span><br><span class="line">                use: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">//指定加载器</span></span><br><span class="line">                        <span class="attr">loader</span>:<span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">                        <span class="attr">options</span>:&#123;</span><br><span class="line">                            <span class="attr">presets</span>:[</span><br><span class="line">                                <span class="comment">//指定环境的插件</span></span><br><span class="line">                                <span class="string">&quot;@babel/preset-env&quot;</span>,</span><br><span class="line">                                <span class="comment">//配置信息</span></span><br><span class="line">                                &#123;</span><br><span class="line">                                    <span class="comment">//要兼容的目标浏览器</span></span><br><span class="line">                                    <span class="attr">targets</span>: &#123;</span><br><span class="line">                                        <span class="string">&quot;chrome&quot;</span>:<span class="string">&quot;88&quot;</span>,</span><br><span class="line">                                        <span class="string">&quot;ie&quot;</span>:<span class="string">&quot;11&quot;</span></span><br><span class="line">                                    &#125;,</span><br><span class="line">                                    <span class="comment">//指定core.js的版本</span></span><br><span class="line">                                    <span class="string">&quot;corejs&quot;</span>:<span class="string">&quot;3&quot;</span>,</span><br><span class="line">                                    <span class="comment">//使用corejs的方式&quot;usage&quot;表示按需加载</span></span><br><span class="line">                                    <span class="string">&quot;useBuiltIns&quot;</span>:<span class="string">&quot;usage&quot;</span></span><br><span class="line">                                &#125;</span><br><span class="line">                            ]</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="string">&#x27;ts-loader&#x27;</span>],</span><br><span class="line">                <span class="comment">//要排除的文件</span></span><br><span class="line">                <span class="attr">exclude</span>: <span class="regexp">/node-modules/</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//配置webpack插件</span></span><br><span class="line">    <span class="attr">plugins</span>:[</span><br><span class="line">        <span class="comment">//清除dist</span></span><br><span class="line">        <span class="keyword">new</span> cleanWebPackPlugin(),</span><br><span class="line">        <span class="keyword">new</span> HTMLWebPackPlugin(&#123;</span><br><span class="line">            <span class="attr">title</span>:<span class="string">&#x27;自定义html文件的title&#x27;</span>,</span><br><span class="line">            <span class="comment">//指定一个模板</span></span><br><span class="line">            <span class="comment">// template: &#x27;&#x27;,</span></span><br><span class="line">        &#125;),</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">//哪些文件可以当作模块引入</span></span><br><span class="line">    <span class="attr">resolve</span>:&#123;</span><br><span class="line">        <span class="attr">extensions</span>: [<span class="string">&#x27;.js&#x27;</span>, <span class="string">&#x27;.ts&#x27;</span>, <span class="string">&#x27;.jsx&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>TypeScript</category>
+      </categories>
+  </entry>
+  <entry>
     <title>小技巧</title>
     <url>/2024/01/15/TypeScript/%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-在构造函数里面直接声明属性"><a href="#1-在构造函数里面直接声明属性" class="headerlink" title="1.在构造函数里面直接声明属性"></a>1.在构造函数里面直接声明属性</h2><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="title">constructor</span> <span class="title">className</span>(<span class="params"><span class="keyword">public</span> name:<span class="built_in">string</span>, <span class="keyword">public</span> age:<span class="built_in">number</span></span>)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
@@ -1001,14 +1001,6 @@
 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a:<span class="number">10</span>;</span><br><span class="line">a = <span class="number">1</span> <span class="comment">//false</span></span><br><span class="line">a = <span class="string">&#x27;1&#x27;</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 <p>特殊点</p>
 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a:<span class="string">&#x27;a&#x27;</span>|<span class="number">123</span>|<span class="literal">false</span>;</span><br><span class="line">a = <span class="string">&#x27;a&#x27;</span> <span class="comment">//true</span></span><br><span class="line">a = <span class="number">123</span> <span class="comment">//true</span></span><br><span class="line">a = <span class="literal">false</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>TypeScript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>使用Webpack打包ts</title>
-    <url>/2024/01/15/TypeScript/%E4%BD%BF%E7%94%A8Webpack%E6%89%93%E5%8C%85ts/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> HTMLWebPackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> cleanWebPackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 指定入口文件</span></span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./index.ts&#x27;</span>,</span><br><span class="line">    <span class="comment">// 指定打包文件所在路径</span></span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">path</span>: path.resolve(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指定webpack打包要使用哪些模块</span></span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="comment">// 指定要加载的规则</span></span><br><span class="line">        <span class="attr">rules</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// test指定的是规则生效的文件</span></span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.ts$/</span>,</span><br><span class="line">                <span class="comment">// 要使用的loader</span></span><br><span class="line">                use: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">//指定加载器</span></span><br><span class="line">                        <span class="attr">loader</span>:<span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">                        <span class="attr">options</span>:&#123;</span><br><span class="line">                            <span class="attr">presets</span>:[</span><br><span class="line">                                <span class="comment">//指定环境的插件</span></span><br><span class="line">                                <span class="string">&quot;@babel/preset-env&quot;</span>,</span><br><span class="line">                                <span class="comment">//配置信息</span></span><br><span class="line">                                &#123;</span><br><span class="line">                                    <span class="comment">//要兼容的目标浏览器</span></span><br><span class="line">                                    <span class="attr">targets</span>: &#123;</span><br><span class="line">                                        <span class="string">&quot;chrome&quot;</span>:<span class="string">&quot;88&quot;</span>,</span><br><span class="line">                                        <span class="string">&quot;ie&quot;</span>:<span class="string">&quot;11&quot;</span></span><br><span class="line">                                    &#125;,</span><br><span class="line">                                    <span class="comment">//指定core.js的版本</span></span><br><span class="line">                                    <span class="string">&quot;corejs&quot;</span>:<span class="string">&quot;3&quot;</span>,</span><br><span class="line">                                    <span class="comment">//使用corejs的方式&quot;usage&quot;表示按需加载</span></span><br><span class="line">                                    <span class="string">&quot;useBuiltIns&quot;</span>:<span class="string">&quot;usage&quot;</span></span><br><span class="line">                                &#125;</span><br><span class="line">                            ]</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="string">&#x27;ts-loader&#x27;</span>],</span><br><span class="line">                <span class="comment">//要排除的文件</span></span><br><span class="line">                <span class="attr">exclude</span>: <span class="regexp">/node-modules/</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//配置webpack插件</span></span><br><span class="line">    <span class="attr">plugins</span>:[</span><br><span class="line">        <span class="comment">//清除dist</span></span><br><span class="line">        <span class="keyword">new</span> cleanWebPackPlugin(),</span><br><span class="line">        <span class="keyword">new</span> HTMLWebPackPlugin(&#123;</span><br><span class="line">            <span class="attr">title</span>:<span class="string">&#x27;自定义html文件的title&#x27;</span>,</span><br><span class="line">            <span class="comment">//指定一个模板</span></span><br><span class="line">            <span class="comment">// template: &#x27;&#x27;,</span></span><br><span class="line">        &#125;),</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">//哪些文件可以当作模块引入</span></span><br><span class="line">    <span class="attr">resolve</span>:&#123;</span><br><span class="line">        <span class="attr">extensions</span>: [<span class="string">&#x27;.js&#x27;</span>, <span class="string">&#x27;.ts&#x27;</span>, <span class="string">&#x27;.jsx&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>TypeScript</category>
       </categories>
@@ -1071,18 +1063,6 @@
       </tags>
   </entry>
   <entry>
-    <title>国际化</title>
-    <url>/2024/01/15/Vue/%E5%9B%BD%E9%99%85%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在页面重新加载时重新初始化i18n对象，需要从localstorage读取当前的语言，vuex在页面刷新时会被重置，所以不要通过vuex去初始化i18n</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueI18n <span class="keyword">from</span> <span class="string">&#x27;vue-i18n&#x27;</span></span><br><span class="line"><span class="comment">// import Cookies from &#x27;js-cookie&#x27;</span></span><br><span class="line"><span class="keyword">import</span> locale <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/locale&#x27;</span></span><br><span class="line"><span class="keyword">import</span> elementEnLocale <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/locale/lang/en&#x27;</span> <span class="comment">// element-ui lang</span></span><br><span class="line"><span class="keyword">import</span> elementZhLocale <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/locale/lang/zh-CN&#x27;</span><span class="comment">// element-ui lang</span></span><br><span class="line"><span class="keyword">import</span> enLocale <span class="keyword">from</span> <span class="string">&#x27;./en&#x27;</span></span><br><span class="line"><span class="keyword">import</span> zhLocale <span class="keyword">from</span> <span class="string">&#x27;./zh&#x27;</span></span><br><span class="line">Vue.use(VueI18n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> messages = &#123;</span><br><span class="line">  <span class="attr">en</span>: &#123;</span><br><span class="line">    ...enLocale,</span><br><span class="line">    ...elementEnLocale</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">zh</span>: &#123;</span><br><span class="line">    ...zhLocale,</span><br><span class="line">    ...elementZhLocale</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> i18n = <span class="keyword">new</span> VueI18n(&#123;</span><br><span class="line">  <span class="comment">// 设置语言 选项 en | zh</span></span><br><span class="line">  <span class="comment">// locale: Cookies.get(&#x27;language&#x27;) || &#x27;en&#x27;,</span></span><br><span class="line">  <span class="attr">locale</span>: <span class="built_in">localStorage</span>.lang || <span class="string">&#x27;zh&#x27;</span>, <span class="comment">//初始默认 cn 中文</span></span><br><span class="line">  <span class="comment">// 设置文本内容</span></span><br><span class="line">  messages</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">locale.i18n(<span class="function">(<span class="params">key, value</span>) =&gt;</span> i18n.t(key, value)) <span class="comment">//兼容element</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> i18n</span><br></pre></td></tr></table></figure>
-
-<p>修改语言要通过全局的<code>this.$i18n.locale</code>对象来修改，同时要修改localstorage中语言的值</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Vuex</title>
     <url>/2024/01/15/Vue/Vuex/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="vuex-mutation和action的区别"><a href="#vuex-mutation和action的区别" class="headerlink" title="vuex mutation和action的区别"></a>vuex mutation和action的区别</h2><p>Vuex 中的 mutation 和 action 都是一种改变应用程序状态的方法，它们的目的不同。</p>
@@ -1134,6 +1114,18 @@
       </categories>
   </entry>
   <entry>
+    <title>国际化</title>
+    <url>/2024/01/15/Vue/%E5%9B%BD%E9%99%85%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在页面重新加载时重新初始化i18n对象，需要从localstorage读取当前的语言，vuex在页面刷新时会被重置，所以不要通过vuex去初始化i18n</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueI18n <span class="keyword">from</span> <span class="string">&#x27;vue-i18n&#x27;</span></span><br><span class="line"><span class="comment">// import Cookies from &#x27;js-cookie&#x27;</span></span><br><span class="line"><span class="keyword">import</span> locale <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/locale&#x27;</span></span><br><span class="line"><span class="keyword">import</span> elementEnLocale <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/locale/lang/en&#x27;</span> <span class="comment">// element-ui lang</span></span><br><span class="line"><span class="keyword">import</span> elementZhLocale <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/locale/lang/zh-CN&#x27;</span><span class="comment">// element-ui lang</span></span><br><span class="line"><span class="keyword">import</span> enLocale <span class="keyword">from</span> <span class="string">&#x27;./en&#x27;</span></span><br><span class="line"><span class="keyword">import</span> zhLocale <span class="keyword">from</span> <span class="string">&#x27;./zh&#x27;</span></span><br><span class="line">Vue.use(VueI18n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> messages = &#123;</span><br><span class="line">  <span class="attr">en</span>: &#123;</span><br><span class="line">    ...enLocale,</span><br><span class="line">    ...elementEnLocale</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">zh</span>: &#123;</span><br><span class="line">    ...zhLocale,</span><br><span class="line">    ...elementZhLocale</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> i18n = <span class="keyword">new</span> VueI18n(&#123;</span><br><span class="line">  <span class="comment">// 设置语言 选项 en | zh</span></span><br><span class="line">  <span class="comment">// locale: Cookies.get(&#x27;language&#x27;) || &#x27;en&#x27;,</span></span><br><span class="line">  <span class="attr">locale</span>: <span class="built_in">localStorage</span>.lang || <span class="string">&#x27;zh&#x27;</span>, <span class="comment">//初始默认 cn 中文</span></span><br><span class="line">  <span class="comment">// 设置文本内容</span></span><br><span class="line">  messages</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">locale.i18n(<span class="function">(<span class="params">key, value</span>) =&gt;</span> i18n.t(key, value)) <span class="comment">//兼容element</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> i18n</span><br></pre></td></tr></table></figure>
+
+<p>修改语言要通过全局的<code>this.$i18n.locale</code>对象来修改，同时要修改localstorage中语言的值</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+  </entry>
+  <entry>
     <title>自定义指令1</title>
     <url>/2024/01/15/Vue/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A41/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="指令钩子"><a href="#指令钩子" class="headerlink" title="指令钩子"></a>指令钩子</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myDirective = &#123;</span><br><span class="line">  <span class="comment">// 在绑定元素的 attribute 前</span></span><br><span class="line">  <span class="comment">// 或事件监听器应用前调用</span></span><br><span class="line">  <span class="function"><span class="title">created</span>(<span class="params">el, binding, vnode, prevVnode</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 下面会介绍各个参数的细节</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 在元素被插入到 DOM 前调用</span></span><br><span class="line">  <span class="function"><span class="title">beforeMount</span>(<span class="params">el, binding, vnode, prevVnode</span>)</span> &#123;&#125;,</span><br><span class="line">  <span class="comment">// 在绑定元素的父组件</span></span><br><span class="line">  <span class="comment">// 及他自己的所有子节点都挂载完成后调用</span></span><br><span class="line">  <span class="function"><span class="title">mounted</span>(<span class="params">el, binding, vnode, prevVnode</span>)</span> &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件更新前调用</span></span><br><span class="line">  <span class="function"><span class="title">beforeUpdate</span>(<span class="params">el, binding, vnode, prevVnode</span>)</span> &#123;&#125;,</span><br><span class="line">  <span class="comment">// 在绑定元素的父组件</span></span><br><span class="line">  <span class="comment">// 及他自己的所有子节点都更新后调用</span></span><br><span class="line">  <span class="function"><span class="title">updated</span>(<span class="params">el, binding, vnode, prevVnode</span>)</span> &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件卸载前调用</span></span><br><span class="line">  <span class="function"><span class="title">beforeUnmount</span>(<span class="params">el, binding, vnode, prevVnode</span>)</span> &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件卸载后调用</span></span><br><span class="line">  <span class="function"><span class="title">unmounted</span>(<span class="params">el, binding, vnode, prevVnode</span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1156,6 +1148,14 @@
 ]]></content>
       <categories>
         <category>Vue</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>{.vscode}</title>
+    <url>/2024/01/15/VS%20Code/%7B.vscode%7D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>VS Code</category>
       </categories>
   </entry>
   <entry>
@@ -1750,18 +1750,6 @@
       </categories>
   </entry>
   <entry>
-    <title>inherited和initial</title>
-    <url>/2024/01/15/CSS/%E7%9F%A5%E8%AF%86%E7%82%B9/inherited%E5%92%8Cinitial/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>任何样式都有两种值，一种加 inherited ，一种叫initial</p>
-<h2 id="inherited"><a href="#inherited" class="headerlink" title="inherited"></a>inherited</h2><p>有些样式会被子元素继承但是有些样式无法被默认继承，则可以通过inherited自动要求继承，如<code>border</code><br>![[Pasted image 20230402203738.png]]<br>![[Pasted image 20230402203657.png]]</p>
-<h2 id="initial"><a href="#initial" class="headerlink" title="initial"></a>initial</h2><p>采用浏览器默认样式，不接受被动继承来的样式</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-        <category>知识点</category>
-      </categories>
-  </entry>
-  <entry>
     <title>hsl()和hsla()</title>
     <url>/2024/01/15/CSS/%E7%9F%A5%E8%AF%86%E7%82%B9/hsl()%E5%92%8Chsla()/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="hsl"><a href="#hsl" class="headerlink" title="hsl()"></a>hsl()</h2><p><strong>HSL</strong> 即：<strong>色相</strong>（Hue）、<strong>饱和度</strong>（ Saturation ）、<strong>亮度</strong>（ Lightness ）。</p>
@@ -1795,6 +1783,18 @@
 <p>透明度（A） 取值 0~1 之间， 代表透明度。</p>
 </blockquote>
 <h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hsla(hue, saturation , lightness ,alpha)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>CSS</category>
+        <category>知识点</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>inherited和initial</title>
+    <url>/2024/01/15/CSS/%E7%9F%A5%E8%AF%86%E7%82%B9/inherited%E5%92%8Cinitial/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>任何样式都有两种值，一种加 inherited ，一种叫initial</p>
+<h2 id="inherited"><a href="#inherited" class="headerlink" title="inherited"></a>inherited</h2><p>有些样式会被子元素继承但是有些样式无法被默认继承，则可以通过inherited自动要求继承，如<code>border</code><br>![[Pasted image 20230402203738.png]]<br>![[Pasted image 20230402203657.png]]</p>
+<h2 id="initial"><a href="#initial" class="headerlink" title="initial"></a>initial</h2><p>采用浏览器默认样式，不接受被动继承来的样式</p>
+]]></content>
       <categories>
         <category>CSS</category>
         <category>知识点</category>
@@ -1937,6 +1937,36 @@
       </categories>
   </entry>
   <entry>
+    <title>AOP</title>
+    <url>/2024/01/15/Java/Springboot/AOP/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>AOP</strong>为<font color="#4f81bd">Aspect Oriented Programming</font>的缩写，意为：面向切面编程。</p>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ol>
+<li><strong>Aspect</strong>（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。</li>
+<li><strong>Joint point</strong>（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。</li>
+<li><strong>Pointcut</strong>（切点）：表示一组 joint point，这些 joint point 或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的 Advice 将要发生的地方。</li>
+<li><strong>Advice</strong>（增强）：Advice 定义了在 Pointcut 里面定义的程序点具体要做的操作，它通过 before、after 和 around 来区别是在每个 joint point 之前、之后还是代替执行的代码。</li>
+<li><strong>Target</strong>（目标对象）：织入 Advice 的目标对象.。</li>
+<li><strong>Weaving</strong>（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced object 的过程</li>
+</ol>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>在 Spring AOP 中 Joint point 指代的是所有方法的执行点, 而 point cut 是一个描述信息, 它修饰的是 Joint point, 通过 point cut, 我们就可以确定哪些 Joint point 可以被织入 Advice. 对应到我们在上面举的例子, 我们可以做一个简单的类比, Joint point 就相当于 爪哇的小县城里的百姓,pointcut 就相当于 老王所做的指控, 即凶手是个男性, 身高约七尺五寸, 而 Advice 则是施加在符合老王所描述的嫌疑人的动作: 抓过来审问.<br>为什么可以这样类比呢?</p>
+<ul>
+<li><p>Joint point ： 爪哇的小县城里的百姓: 因为根据定义, Joint point 是所有可能被织入 Advice 的候选的点, 在 Spring AOP中, 则可以认为所有方法执行点都是 Joint point. 而在我们上面的例子中, 命案发生在小县城中, 按理说在此县城中的所有人都有可能是嫌疑人.</p>
+</li>
+<li><p>Pointcut ：男性, 身高约七尺五寸: 我们知道, 所有的方法(joint point) 都可以织入 Advice, 但是我们并不希望在所有方法上都织入 Advice, 而 Pointcut 的作用就是提供一组规则来匹配joinpoint, 给满足规则的 joinpoint 添加 Advice. 同理, 对于县令来说, 他再昏庸, 也知道不能把县城中的所有百姓都抓起来审问, 而是根据凶手是个男性, 身高约七尺五寸, 把符合条件的人抓起来. 在这里 凶手是个男性, 身高约七尺五寸 就是一个修饰谓语, 它限定了凶手的范围, 满足此修饰规则的百姓都是嫌疑人, 都需要抓起来审问.</p>
+</li>
+<li><p>Advice ：抓过来审问, Advice 是一个动作, 即一段 Java 代码, 这段 Java 代码是作用于 point cut 所限定的那些 Joint point 上的. 同理, 对比到我们的例子中, 抓过来审问 这个动作就是对作用于那些满足 男性, 身高约七尺五寸 的爪哇的小县城里的百姓.</p>
+</li>
+<li><p>Aspect:：Aspect 是 point cut 与 Advice 的组合, 因此在这里我们就可以类比: “根据老王的线索, 凡是发现有身高七尺五寸的男性, 都要抓过来审问” 这一整个动作可以被认为是一个 Aspect.</p>
+</li>
+</ul>
+<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307271144110.png" alt="image.png"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Springboot</category>
+      </categories>
+  </entry>
+  <entry>
     <title>new Date()小知识点</title>
     <url>/2024/01/15/JS/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/new%20Date()%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307271138137.png" alt="image.png"></p>
@@ -2036,36 +2066,6 @@
       <categories>
         <category>Linux</category>
         <category>命令</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AOP</title>
-    <url>/2024/01/15/Java/Springboot/AOP/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>AOP</strong>为<font color="#4f81bd">Aspect Oriented Programming</font>的缩写，意为：面向切面编程。</p>
-<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ol>
-<li><strong>Aspect</strong>（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。</li>
-<li><strong>Joint point</strong>（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。</li>
-<li><strong>Pointcut</strong>（切点）：表示一组 joint point，这些 joint point 或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的 Advice 将要发生的地方。</li>
-<li><strong>Advice</strong>（增强）：Advice 定义了在 Pointcut 里面定义的程序点具体要做的操作，它通过 before、after 和 around 来区别是在每个 joint point 之前、之后还是代替执行的代码。</li>
-<li><strong>Target</strong>（目标对象）：织入 Advice 的目标对象.。</li>
-<li><strong>Weaving</strong>（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced object 的过程</li>
-</ol>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>在 Spring AOP 中 Joint point 指代的是所有方法的执行点, 而 point cut 是一个描述信息, 它修饰的是 Joint point, 通过 point cut, 我们就可以确定哪些 Joint point 可以被织入 Advice. 对应到我们在上面举的例子, 我们可以做一个简单的类比, Joint point 就相当于 爪哇的小县城里的百姓,pointcut 就相当于 老王所做的指控, 即凶手是个男性, 身高约七尺五寸, 而 Advice 则是施加在符合老王所描述的嫌疑人的动作: 抓过来审问.<br>为什么可以这样类比呢?</p>
-<ul>
-<li><p>Joint point ： 爪哇的小县城里的百姓: 因为根据定义, Joint point 是所有可能被织入 Advice 的候选的点, 在 Spring AOP中, 则可以认为所有方法执行点都是 Joint point. 而在我们上面的例子中, 命案发生在小县城中, 按理说在此县城中的所有人都有可能是嫌疑人.</p>
-</li>
-<li><p>Pointcut ：男性, 身高约七尺五寸: 我们知道, 所有的方法(joint point) 都可以织入 Advice, 但是我们并不希望在所有方法上都织入 Advice, 而 Pointcut 的作用就是提供一组规则来匹配joinpoint, 给满足规则的 joinpoint 添加 Advice. 同理, 对于县令来说, 他再昏庸, 也知道不能把县城中的所有百姓都抓起来审问, 而是根据凶手是个男性, 身高约七尺五寸, 把符合条件的人抓起来. 在这里 凶手是个男性, 身高约七尺五寸 就是一个修饰谓语, 它限定了凶手的范围, 满足此修饰规则的百姓都是嫌疑人, 都需要抓起来审问.</p>
-</li>
-<li><p>Advice ：抓过来审问, Advice 是一个动作, 即一段 Java 代码, 这段 Java 代码是作用于 point cut 所限定的那些 Joint point 上的. 同理, 对比到我们的例子中, 抓过来审问 这个动作就是对作用于那些满足 男性, 身高约七尺五寸 的爪哇的小县城里的百姓.</p>
-</li>
-<li><p>Aspect:：Aspect 是 point cut 与 Advice 的组合, 因此在这里我们就可以类比: “根据老王的线索, 凡是发现有身高七尺五寸的男性, 都要抓过来审问” 这一整个动作可以被认为是一个 Aspect.</p>
-</li>
-</ul>
-<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307271144110.png" alt="image.png"></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>Springboot</category>
       </categories>
   </entry>
   <entry>
@@ -2361,6 +2361,62 @@
       </categories>
   </entry>
   <entry>
+    <title>4. Nest.js Providers</title>
+    <url>/2024/01/15/Node/NestJS/4.%20Nest.js%20Providers/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Providers是Nest中的一个基本概念。许多基本的Nest类可以被视为提供者——服务、存储库、工厂、助手等等。提供者的主要思想是它可以作为依赖注入;这意味着对象可以创建彼此之间的各种关系，并且“连接”对象实例的功能可以在很大程度上委托给Nest运行时系统。</p>
+<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307250927115.png" alt="image.png"></p>
+<p>在前一章中，我们构建了一个简单的<code>CatsController</code>。控制器应该处理HTTP请求，并将更复杂的任务委托给提供商。提供程序是在模块中声明为提供程序的普通JavaScript类。</p>
+<blockquote>
+<p>[!hint]<br>由于Nest允许以更面向对象的方式设计和组织依赖项，因此我们强烈建议遵循<a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a>原则([[SOLID]])。</p>
+</blockquote>
+<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>让我们从创建一个简单的<code>CatsService</code>开始。该服务将负责数据存储和检索，并被设计为由<code>CatsController</code>使用，因此将其定义为提供者是一个很好的候选者。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Cat &#125; <span class="keyword">from</span> <span class="string">&#x27;./interfaces/cat.interface&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CatsService</span> </span>&#123;</span><br><span class="line">  private readonly cats: Cat[] = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">create</span>(<span class="params">cat: Cat</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.cats.push(cat);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  findAll(): Cat[] &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.cats;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!hint]<br>要使用CLI创建服务，只需执行<code>$ nest g service cats</code>命令。</p>
+</blockquote>
+<p>我们的<code>CatsService</code>是一个具有一个属性和两个方法的基本类。唯一的新特性是它使用了<code>@Injectable()</code>装饰器。<code>@Injectable()</code>装饰器附加了元数据，它声明<code>CatsService</code>是一个可以由Nest IoC容器管理的类。顺便说一下，这个例子也使用了一个<code>Cat</code>接口，它看起来可能是这样的:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> interface Cat &#123;</span><br><span class="line">  <span class="attr">name</span>: string;</span><br><span class="line">  age: number;</span><br><span class="line">  breed: string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们有了一个检索猫的服务类，让我们在<code>CatsController</code>中使用它:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Controller, Get, Post, Body &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CreateCatDto &#125; <span class="keyword">from</span> <span class="string">&#x27;./dto/create-cat.dto&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsService &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats.service&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Cat &#125; <span class="keyword">from</span> <span class="string">&#x27;./interfaces/cat.interface&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Controller(<span class="string">&#x27;cats&#x27;</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CatsController</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">private catsService: CatsService</span>)</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">  @Post()</span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="title">create</span>(<span class="params">@Body() createCatDto: CreateCatDto</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.catsService.create(createCatDto);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Get()</span><br><span class="line">  <span class="keyword">async</span> findAll(): <span class="built_in">Promise</span>&lt;Cat[]&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.catsService.findAll();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>CatsService</code>是通过类构造函数注入的。注意这里使用了私有语法。这种简写允许我们在同一位置立即声明和初始化<code>catsService</code>成员。</p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>Nest是围绕通常称为依赖注入的强大设计模式构建的。我们建议在Angular官方文档中阅读一篇关于这个概念的<a href="https://angular.io/guide/dependency-injection">好文章</a>([[理解依赖注入]])。</p>
+<p>在Nest中，由于TypeScript的功能，管理依赖非常容易，因为它们只按类型解析。在下面的示例中，Nest将通过创建和返回<code>catsService</code>的实例来解析<code>catsService</code>(或者，在单例的正常情况下，如果已经在其他地方请求了它，则返回现有的实例)。这个依赖被解析并传递给你的控制器的构造函数(或分配给指定的属性):</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params">private catsService: CatsService</span>)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>Providers通常有一个与应用程序生命周期同步的生命周期(“作用域”)。当应用程序被引导时，必须解析每个依赖项，因此必须实例化每个提供者。类似地，当应用程序关闭时，每个提供程序都将被销毁。然而，也有一些方法可以使您的提供者生命周期限定在<code>request-scoped</code>内。你可以在<a href="https://docs.nestjs.com/fundamentals/injection-scopes">这里</a>阅读更多关于这些技术的内容。</p>
+<h2 id="自定义-Providers"><a href="#自定义-Providers" class="headerlink" title="自定义 Providers"></a>自定义 Providers</h2><p>Nest有一个内置的控制反转(IoC)容器来解析providers之间的关系。这个特性是上述依赖注入特性的基础，但实际上比我们目前所描述的要强大得多。有几种方法可以定义提供程序:您可以使用普通值、类以及异步或同步工厂。这里提供了更多<a href="https://docs.nestjs.com/fundamentals/dependency-injection">示例</a>。</p>
+<h2 id="Optional-providers"><a href="#Optional-providers" class="headerlink" title="Optional providers"></a>Optional providers</h2><p>偶尔，您可能会有不需要解析的依赖项。例如，您的类可能依赖于配置对象，但如果没有传递，则应使用默认值。在这种情况下，依赖项成为可选的，因为缺少配置提供程序不会导致错误。</p>
+<p>要指出一个提供程序是可选的，可以在构造函数的签名中使用<code>@Optional()</code>装饰器。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Optional, Inject &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpService</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">@Optional() @Inject(<span class="string">&#x27;HTTP_OPTIONS&#x27;</span>) private httpClient: T</span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，在上面的示例中，我们使用的是自定义provider，这就是我们包含<code>HTTP_OPTIONS</code>自定义令牌的原因。前面的例子展示了基于构造函数的注入，通过构造函数中的类 表示 依赖项。在<a href="https://docs.nestjs.com/fundamentals/custom-providers">这里</a>阅读有关自定义提供程序及其相关令牌的更多信息。</p>
+<h2 id="基于属性的注入"><a href="#基于属性的注入" class="headerlink" title="基于属性的注入"></a>基于属性的注入</h2><p>到目前为止，我们使用的技术被称为基于构造函数的注入，因为提供程序是通过构造函数方法注入的。在一些非常特殊的情况下，基于属性的注入可能很有用。例如，如果您的顶级类依赖于一个或多个提供程序，那么通过从构造函数调用子类中的<code>super()</code>来传递它们可能非常繁琐。为了避免这种情况，你可以在属性级别使用<code>@Inject()</code>装饰器。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Inject &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpService</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  @Inject(<span class="string">&#x27;HTTP_OPTIONS&#x27;</span>)</span><br><span class="line">  private readonly httpClient: T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!warning]<br>如果你的类没有扩展其他providers，你应该总是使用基于构造函数的注入。</p>
+</blockquote>
+<h2 id="Provider-registration"><a href="#Provider-registration" class="headerlink" title="Provider registration"></a>Provider registration</h2><p>现在我们已经定义了一个<code>provider(CatsService)</code>，并且有了该服务的消费者(<code>CatsController</code>)，我们需要向Nest注册该服务，以便它可以执行注入。我们通过编辑模块文件(<code>app.module.ts</code>)并将服务添加到<code>@Module()</code>装饰器的<code>provider</code>s数组中来实现这一点。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Module &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsController &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.controller&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsService &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.service&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Module(&#123;</span><br><span class="line">  <span class="attr">controllers</span>: [CatsController],</span><br><span class="line">  <span class="attr">providers</span>: [CatsService],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Nest现在可以解析<code>CatsController</code>类的依赖关系了。</p>
+<p>现在我们的目录结构应该是这样的:</p>
+<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307250928067.png" alt="image.png"></p>
+<h2 id="手动实例化"><a href="#手动实例化" class="headerlink" title="手动实例化"></a>手动实例化</h2><p>到目前为止，我们已经讨论了Nest如何自动处理解析依赖项的大部分细节。在某些情况下，你可能需要走出内置的依赖注入系统，手动检索或实例化提供商。下面我们将简要讨论两个这样的主题。</p>
+<ul>
+<li>要获取现有实例或动态实例化提供程序，可以使用 <a href="https://docs.nestjs.com/fundamentals/module-ref">Module reference</a>.</li>
+<li>要在<code>bootstrap()</code>函数中获取提供商(例如，对于没有控制器的独立应用程序，或在引导期间使用配置服务)，请参阅<a href="https://docs.nestjs.com/standalone-applications">独立应用程序</a>。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Node</category>
+        <category>NestJS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>5. Nest.js Modules</title>
     <url>/2024/01/15/Node/NestJS/5.%20Nest.js%20Modules/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Module是一个带有<code>@Module()</code>装饰器的类。<code>@Module()</code>装饰器提供了Nest用来组织应用程序结构的元数据。</p>
@@ -2532,62 +2588,6 @@
       </categories>
   </entry>
   <entry>
-    <title>4. Nest.js Providers</title>
-    <url>/2024/01/15/Node/NestJS/4.%20Nest.js%20Providers/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Providers是Nest中的一个基本概念。许多基本的Nest类可以被视为提供者——服务、存储库、工厂、助手等等。提供者的主要思想是它可以作为依赖注入;这意味着对象可以创建彼此之间的各种关系，并且“连接”对象实例的功能可以在很大程度上委托给Nest运行时系统。</p>
-<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307250927115.png" alt="image.png"></p>
-<p>在前一章中，我们构建了一个简单的<code>CatsController</code>。控制器应该处理HTTP请求，并将更复杂的任务委托给提供商。提供程序是在模块中声明为提供程序的普通JavaScript类。</p>
-<blockquote>
-<p>[!hint]<br>由于Nest允许以更面向对象的方式设计和组织依赖项，因此我们强烈建议遵循<a href="https://en.wikipedia.org/wiki/SOLID">SOLID</a>原则([[SOLID]])。</p>
-</blockquote>
-<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>让我们从创建一个简单的<code>CatsService</code>开始。该服务将负责数据存储和检索，并被设计为由<code>CatsController</code>使用，因此将其定义为提供者是一个很好的候选者。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Cat &#125; <span class="keyword">from</span> <span class="string">&#x27;./interfaces/cat.interface&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CatsService</span> </span>&#123;</span><br><span class="line">  private readonly cats: Cat[] = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">create</span>(<span class="params">cat: Cat</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.cats.push(cat);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  findAll(): Cat[] &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.cats;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>[!hint]<br>要使用CLI创建服务，只需执行<code>$ nest g service cats</code>命令。</p>
-</blockquote>
-<p>我们的<code>CatsService</code>是一个具有一个属性和两个方法的基本类。唯一的新特性是它使用了<code>@Injectable()</code>装饰器。<code>@Injectable()</code>装饰器附加了元数据，它声明<code>CatsService</code>是一个可以由Nest IoC容器管理的类。顺便说一下，这个例子也使用了一个<code>Cat</code>接口，它看起来可能是这样的:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> interface Cat &#123;</span><br><span class="line">  <span class="attr">name</span>: string;</span><br><span class="line">  age: number;</span><br><span class="line">  breed: string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>现在我们有了一个检索猫的服务类，让我们在<code>CatsController</code>中使用它:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Controller, Get, Post, Body &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CreateCatDto &#125; <span class="keyword">from</span> <span class="string">&#x27;./dto/create-cat.dto&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsService &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats.service&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Cat &#125; <span class="keyword">from</span> <span class="string">&#x27;./interfaces/cat.interface&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Controller(<span class="string">&#x27;cats&#x27;</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CatsController</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">private catsService: CatsService</span>)</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">  @Post()</span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="title">create</span>(<span class="params">@Body() createCatDto: CreateCatDto</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.catsService.create(createCatDto);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Get()</span><br><span class="line">  <span class="keyword">async</span> findAll(): <span class="built_in">Promise</span>&lt;Cat[]&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.catsService.findAll();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>CatsService</code>是通过类构造函数注入的。注意这里使用了私有语法。这种简写允许我们在同一位置立即声明和初始化<code>catsService</code>成员。</p>
-<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>Nest是围绕通常称为依赖注入的强大设计模式构建的。我们建议在Angular官方文档中阅读一篇关于这个概念的<a href="https://angular.io/guide/dependency-injection">好文章</a>([[理解依赖注入]])。</p>
-<p>在Nest中，由于TypeScript的功能，管理依赖非常容易，因为它们只按类型解析。在下面的示例中，Nest将通过创建和返回<code>catsService</code>的实例来解析<code>catsService</code>(或者，在单例的正常情况下，如果已经在其他地方请求了它，则返回现有的实例)。这个依赖被解析并传递给你的控制器的构造函数(或分配给指定的属性):</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params">private catsService: CatsService</span>)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>Providers通常有一个与应用程序生命周期同步的生命周期(“作用域”)。当应用程序被引导时，必须解析每个依赖项，因此必须实例化每个提供者。类似地，当应用程序关闭时，每个提供程序都将被销毁。然而，也有一些方法可以使您的提供者生命周期限定在<code>request-scoped</code>内。你可以在<a href="https://docs.nestjs.com/fundamentals/injection-scopes">这里</a>阅读更多关于这些技术的内容。</p>
-<h2 id="自定义-Providers"><a href="#自定义-Providers" class="headerlink" title="自定义 Providers"></a>自定义 Providers</h2><p>Nest有一个内置的控制反转(IoC)容器来解析providers之间的关系。这个特性是上述依赖注入特性的基础，但实际上比我们目前所描述的要强大得多。有几种方法可以定义提供程序:您可以使用普通值、类以及异步或同步工厂。这里提供了更多<a href="https://docs.nestjs.com/fundamentals/dependency-injection">示例</a>。</p>
-<h2 id="Optional-providers"><a href="#Optional-providers" class="headerlink" title="Optional providers"></a>Optional providers</h2><p>偶尔，您可能会有不需要解析的依赖项。例如，您的类可能依赖于配置对象，但如果没有传递，则应使用默认值。在这种情况下，依赖项成为可选的，因为缺少配置提供程序不会导致错误。</p>
-<p>要指出一个提供程序是可选的，可以在构造函数的签名中使用<code>@Optional()</code>装饰器。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Optional, Inject &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpService</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">@Optional() @Inject(<span class="string">&#x27;HTTP_OPTIONS&#x27;</span>) private httpClient: T</span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，在上面的示例中，我们使用的是自定义provider，这就是我们包含<code>HTTP_OPTIONS</code>自定义令牌的原因。前面的例子展示了基于构造函数的注入，通过构造函数中的类 表示 依赖项。在<a href="https://docs.nestjs.com/fundamentals/custom-providers">这里</a>阅读有关自定义提供程序及其相关令牌的更多信息。</p>
-<h2 id="基于属性的注入"><a href="#基于属性的注入" class="headerlink" title="基于属性的注入"></a>基于属性的注入</h2><p>到目前为止，我们使用的技术被称为基于构造函数的注入，因为提供程序是通过构造函数方法注入的。在一些非常特殊的情况下，基于属性的注入可能很有用。例如，如果您的顶级类依赖于一个或多个提供程序，那么通过从构造函数调用子类中的<code>super()</code>来传递它们可能非常繁琐。为了避免这种情况，你可以在属性级别使用<code>@Inject()</code>装饰器。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Inject &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpService</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  @Inject(<span class="string">&#x27;HTTP_OPTIONS&#x27;</span>)</span><br><span class="line">  private readonly httpClient: T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>[!warning]<br>如果你的类没有扩展其他providers，你应该总是使用基于构造函数的注入。</p>
-</blockquote>
-<h2 id="Provider-registration"><a href="#Provider-registration" class="headerlink" title="Provider registration"></a>Provider registration</h2><p>现在我们已经定义了一个<code>provider(CatsService)</code>，并且有了该服务的消费者(<code>CatsController</code>)，我们需要向Nest注册该服务，以便它可以执行注入。我们通过编辑模块文件(<code>app.module.ts</code>)并将服务添加到<code>@Module()</code>装饰器的<code>provider</code>s数组中来实现这一点。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Module &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsController &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.controller&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CatsService &#125; <span class="keyword">from</span> <span class="string">&#x27;./cats/cats.service&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Module(&#123;</span><br><span class="line">  <span class="attr">controllers</span>: [CatsController],</span><br><span class="line">  <span class="attr">providers</span>: [CatsService],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppModule</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Nest现在可以解析<code>CatsController</code>类的依赖关系了。</p>
-<p>现在我们的目录结构应该是这样的:</p>
-<p><img src="https://lsy-picgo.obs.cn-south-1.myhuaweicloud.com/picgo/picgo-nex/202307250928067.png" alt="image.png"></p>
-<h2 id="手动实例化"><a href="#手动实例化" class="headerlink" title="手动实例化"></a>手动实例化</h2><p>到目前为止，我们已经讨论了Nest如何自动处理解析依赖项的大部分细节。在某些情况下，你可能需要走出内置的依赖注入系统，手动检索或实例化提供商。下面我们将简要讨论两个这样的主题。</p>
-<ul>
-<li>要获取现有实例或动态实例化提供程序，可以使用 <a href="https://docs.nestjs.com/fundamentals/module-ref">Module reference</a>.</li>
-<li>要在<code>bootstrap()</code>函数中获取提供商(例如，对于没有控制器的独立应用程序，或在引导期间使用配置服务)，请参阅<a href="https://docs.nestjs.com/standalone-applications">独立应用程序</a>。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Node</category>
-        <category>NestJS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>7. Nest.js 异常过滤器</title>
     <url>/2024/01/15/Node/NestJS/7.%20Nest.js%20%E5%BC%82%E5%B8%B8%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Nest有一个内置的异常层，负责处理整个应用程序中所有未处理的异常。当应用程序代码没有处理异常时，该层将捕获异常，然后自动发送适当的用户友好响应。</p>
@@ -2675,25 +2675,6 @@
       </tags>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/2024/01/15/Node/NestJS/test/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="mermaid-wrap"><pre class="mermaid-src" hidden>
-  pie
-    title Key elements in Product X
-    &quot;Calcium&quot; : 42.96
-    &quot;Potassium&quot; : 50.05
-    &quot;Magnesium&quot; : 10.01
-    &quot;Iron&quot; :  5
-  </pre></div>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pie</span><br><span class="line">    title Key elements in Product X</span><br><span class="line">    &quot;Calcium&quot; : 42.96</span><br><span class="line">    &quot;Potassium&quot; : 50.05</span><br><span class="line">    &quot;Magnesium&quot; : 10.01</span><br><span class="line">    &quot;Iron&quot; :  5</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Node</category>
-        <category>NestJS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Nest命令</title>
     <url>/2024/01/15/Node/NestJS/Nest%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装Nest"><a href="#安装Nest" class="headerlink" title="安装Nest"></a>安装Nest</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i -g @nestjs/cli</span><br></pre></td></tr></table></figure>
@@ -2708,6 +2689,25 @@
 
 
 <h2 id="统一创建"><a href="#统一创建" class="headerlink" title="统一创建"></a>统一创建</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nest g resource</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Node</category>
+        <category>NestJS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2024/01/15/Node/NestJS/test/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="mermaid-wrap"><pre class="mermaid-src" hidden>
+  pie
+    title Key elements in Product X
+    &quot;Calcium&quot; : 42.96
+    &quot;Potassium&quot; : 50.05
+    &quot;Magnesium&quot; : 10.01
+    &quot;Iron&quot; :  5
+  </pre></div>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pie</span><br><span class="line">    title Key elements in Product X</span><br><span class="line">    &quot;Calcium&quot; : 42.96</span><br><span class="line">    &quot;Potassium&quot; : 50.05</span><br><span class="line">    &quot;Magnesium&quot; : 10.01</span><br><span class="line">    &quot;Iron&quot; :  5</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Node</category>
@@ -2865,18 +2865,18 @@
       </categories>
   </entry>
   <entry>
-    <title>哲玄前端面试题</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E5%93%B2%E7%8E%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是BCF"><a href="#什么是BCF" class="headerlink" title="什么是BCF?"></a>什么是BCF?</h2>]]></content>
+    <title>事件循环</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       <categories>
         <category>Others</category>
         <category>面试</category>
       </categories>
   </entry>
   <entry>
-    <title>事件循环</title>
-    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <title>哲玄前端面试题</title>
+    <url>/2024/01/15/Others/%E9%9D%A2%E8%AF%95/%E5%93%B2%E7%8E%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是BCF"><a href="#什么是BCF" class="headerlink" title="什么是BCF?"></a>什么是BCF?</h2>]]></content>
       <categories>
         <category>Others</category>
         <category>面试</category>
@@ -5769,56 +5769,6 @@ await ea.addElementsToView(false, false);
       </categories>
   </entry>
   <entry>
-    <title>1-什么是经济学</title>
-    <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Lessons/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6-%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%8E%9F%E7%90%86/1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BB%8F%E6%B5%8E%E5%AD%A6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1-什么是经济学"><a href="#1-什么是经济学" class="headerlink" title="1-什么是经济学"></a>1-什么是经济学</h1><p>Created: January 26, 2023 11:51 PM<br><a href="http://player.bilibili.com/player.html?aid=62120450&bvid=BV1gt411g7RU&cid=107964696&page=1">http://player.bilibili.com/player.html?aid=62120450&amp;bvid=BV1gt411g7RU&amp;cid=107964696&amp;page=1</a></p>
-<h1 id="经济学的三类问题"><a href="#经济学的三类问题" class="headerlink" title="经济学的三类问题"></a>经济学的三类问题</h1><ol>
-<li>人们如何做出决策？- how people make decision?</li>
-<li>人们如何相互作用？- how people interact?</li>
-<li>整体经济如何运行？- how the economy as a whole works?</li>
-</ol>
-<h1 id="经济学10个原理-人们如何做出决策"><a href="#经济学10个原理-人们如何做出决策" class="headerlink" title="经济学10个原理-人们如何做出决策"></a>经济学10个原理-人们如何做出决策</h1><ol>
-<li><p>人们面临得失交换、</p>
-</li>
-<li><p>某物的成本是为此所放弃的东西</p>
-</li>
-<li><p>理性人思考边际量</p>
-</li>
-<li><p>人们会对激励做出反应</p>
-<hr>
-</li>
-<li><p>贸易能使人人受益</p>
-</li>
-<li><p>市场通常是组织经济活动的好方式</p>
-</li>
-<li><p>政府有时可以改进市场结果</p>
-<hr>
-</li>
-<li><p>一国的生活水平取决于他的生产</p>
-</li>
-<li><p>当政府发行了过多的货币时物价上涨</p>
-</li>
-<li><p>社会面临通货膨胀和失业之间的短期得失交换</p>
-</li>
-</ol>
-<blockquote>
-<p>个人决策</p>
-</blockquote>
-<blockquote>
-<p>个人和个人之间，企业和企业之间，企业和个人之间，国家和国家之间相互的作用</p>
-</blockquote>
-<blockquote>
-<p>经济作为一个整体</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>notion</category>
-        <category>学习</category>
-        <category>Lessons</category>
-        <category>清华大学-经济学原理</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Class</title>
     <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Javascript/ES6/Class/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><p>ES6 类可以通过使用 <code>class</code> 关键字来创建更清晰的语法结构，以及构造函数、静态方法和 getter 和 setter 等其他功能。使用 <code>class</code> 关键字可以让开发人员创建更有组织性且易于维护的对象，并且还可以享受内置优化带来的更好的性能。</p>
@@ -5914,14 +5864,53 @@ await ea.addElementsToView(false, false);
       </categories>
   </entry>
   <entry>
-    <title>跨盘cd</title>
-    <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Python/Anaconda/%E8%B7%A8%E7%9B%98cd/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="跨盘cd"><a href="#跨盘cd" class="headerlink" title="跨盘cd"></a>跨盘cd</h1><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">cd **<span class="regexp">/d** xx/</span>xxx/xx</span><br></pre></td></tr></table></figure>]]></content>
+    <title>1-什么是经济学</title>
+    <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Lessons/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6-%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%8E%9F%E7%90%86/1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BB%8F%E6%B5%8E%E5%AD%A6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1-什么是经济学"><a href="#1-什么是经济学" class="headerlink" title="1-什么是经济学"></a>1-什么是经济学</h1><p>Created: January 26, 2023 11:51 PM<br><a href="http://player.bilibili.com/player.html?aid=62120450&bvid=BV1gt411g7RU&cid=107964696&page=1">http://player.bilibili.com/player.html?aid=62120450&amp;bvid=BV1gt411g7RU&amp;cid=107964696&amp;page=1</a></p>
+<h1 id="经济学的三类问题"><a href="#经济学的三类问题" class="headerlink" title="经济学的三类问题"></a>经济学的三类问题</h1><ol>
+<li>人们如何做出决策？- how people make decision?</li>
+<li>人们如何相互作用？- how people interact?</li>
+<li>整体经济如何运行？- how the economy as a whole works?</li>
+</ol>
+<h1 id="经济学10个原理-人们如何做出决策"><a href="#经济学10个原理-人们如何做出决策" class="headerlink" title="经济学10个原理-人们如何做出决策"></a>经济学10个原理-人们如何做出决策</h1><ol>
+<li><p>人们面临得失交换、</p>
+</li>
+<li><p>某物的成本是为此所放弃的东西</p>
+</li>
+<li><p>理性人思考边际量</p>
+</li>
+<li><p>人们会对激励做出反应</p>
+<hr>
+</li>
+<li><p>贸易能使人人受益</p>
+</li>
+<li><p>市场通常是组织经济活动的好方式</p>
+</li>
+<li><p>政府有时可以改进市场结果</p>
+<hr>
+</li>
+<li><p>一国的生活水平取决于他的生产</p>
+</li>
+<li><p>当政府发行了过多的货币时物价上涨</p>
+</li>
+<li><p>社会面临通货膨胀和失业之间的短期得失交换</p>
+</li>
+</ol>
+<blockquote>
+<p>个人决策</p>
+</blockquote>
+<blockquote>
+<p>个人和个人之间，企业和企业之间，企业和个人之间，国家和国家之间相互的作用</p>
+</blockquote>
+<blockquote>
+<p>经济作为一个整体</p>
+</blockquote>
+]]></content>
       <categories>
         <category>notion</category>
         <category>学习</category>
-        <category>Python</category>
-        <category>Anaconda</category>
+        <category>Lessons</category>
+        <category>清华大学-经济学原理</category>
       </categories>
   </entry>
   <entry>
@@ -5939,6 +5928,17 @@ await ea.addElementsToView(false, false);
         <category>学习</category>
         <category>Long-term Target</category>
         <category>Piano Learning</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>跨盘cd</title>
+    <url>/2024/01/15/notion/%E5%AD%A6%E4%B9%A0/Python/Anaconda/%E8%B7%A8%E7%9B%98cd/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="跨盘cd"><a href="#跨盘cd" class="headerlink" title="跨盘cd"></a>跨盘cd</h1><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">cd **<span class="regexp">/d** xx/</span>xxx/xx</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>notion</category>
+        <category>学习</category>
+        <category>Python</category>
+        <category>Anaconda</category>
       </categories>
   </entry>
   <entry>
